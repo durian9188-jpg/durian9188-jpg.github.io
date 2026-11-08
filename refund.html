@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DataBridge Refund Policy: Transparent refund eligibility, Paddle Merchant of Record processing, and request procedure.">
+<title>Refund Policy — DataBridge</title>
+<style>
+:root{
+  --ink:#171717;
+  --muted:#777;
+  --line:#e9e9e7;
+  --paper:#fff;
+  --soft:#f7f7f5;
+  --accent:#8d7359;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(900px,calc(100% - 48px));margin:auto}
+header{height:76px;border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:22px;font-weight:750;letter-spacing:-.8px}
+.brand span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-link{font-size:13px;color:#555;transition:color .15s}
+.nav-link:hover{color:#111}
+.nav-link.active{color:var(--ink);font-weight:600}
+.lang{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;cursor:pointer}
+
+.doc-header{padding:65px 0 35px;border-bottom:1px solid var(--line);margin-bottom:45px}
+.badge{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:30px;font-size:12px;color:#777;background:#fafafa;font-weight:600}
+h1{font-size:clamp(32px,4.5vw,46px);letter-spacing:-1.8px;line-height:1.2;margin:18px 0 12px;font-weight:750}
+.doc-meta{font-size:13px;color:var(--muted)}
+
+.doc-body section{margin-bottom:42px}
+.doc-body h2{font-size:22px;font-weight:700;letter-spacing:-.6px;margin:0 0 16px;color:#111}
+.doc-body p{font-size:15px;color:#444;margin:0 0 16px;line-height:1.8}
+.doc-body ul{padding-left:22px;margin:0 0 16px;color:#444;font-size:15px}
+.doc-body li{margin-bottom:8px;line-height:1.7}
+.callout{background:var(--soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 22px;margin:22px 0}
+.callout p{margin:0;font-size:14px;color:#333}
+
+.step-card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:16px}
+.step-card h3{font-size:16px;font-weight:700;margin:0 0 8px;color:#111}
+.step-card p{margin:0;font-size:14px;color:#555;line-height:1.7}
+
+footer{border-top:1px solid var(--line);padding:35px 0;color:#999;font-size:12px;margin-top:75px}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#777;transition:color .15s}
+.footer-links a:hover{color:#111}
+
+@media(max-width:768px){
+  header{height:66px}
+  .nav-link{display:none}
+}
+
+/* Language picker */
+.language-picker{position:relative}
+.language-trigger{display:flex;align-items:center;justify-content:center;gap:8px;min-width:76px;height:38px;font-size:13px;font-weight:600;color:#333;transition:background .15s ease}
+.language-trigger:hover{background:#f7f7f5}
+.language-chevron{font-size:17px;line-height:1;color:#888}
+.language-menu{position:absolute;top:calc(100% + 9px);right:0;width:166px;padding:6px;background:#fff;border:1px solid #e9e9e7;border-radius:12px;box-shadow:0 12px 35px rgba(0,0,0,.09);z-index:100}
+.language-menu[hidden]{display:none}
+.language-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:0;border-radius:8px;background:transparent;color:#444;font:inherit;font-size:13px;text-align:left;cursor:pointer}
+.language-menu button:hover{background:#f6f6f4}
+.language-menu button[aria-checked="true"]{color:#171717;font-weight:600}
+.language-check{color:#8d7359}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="brand" href="index.html">Data<span>Bridge</span></a>
+<div class="nav-right">
+<a class="nav-link" href="index.html#features" data-en="Features" data-zh="功能">Features</a>
+<a class="nav-link" href="pricing.html" data-en="Pricing" data-zh="价格">Pricing</a>
+<a class="nav-link" href="index.html#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
+<a class="nav-link" href="terms.html" data-en="Terms" data-zh="条款">Terms</a>
+<a class="nav-link active" href="refund.html" data-en="Refunds" data-zh="退款">Refunds</a>
+<a class="nav-link" href="index.html#download" data-en="Download" data-zh="下载">Download</a>
+<div class="language-picker" id="languagePicker">
+  <button class="lang language-trigger" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu">
+    <span id="langLabel">EN</span>
+    <span class="language-chevron" aria-hidden="true">⌄</span>
+  </button>
+  <div class="language-menu" id="languageMenu" role="menu" hidden>
+    <button type="button" role="menuitemradio" aria-checked="true" data-language="en">
+      <span>English</span><span class="language-check">✓</span>
+    </button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-language="zh">
+      <span>简体中文</span><span class="language-check"></span>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container">
+
+<div class="doc-header">
+  <div class="badge" data-en="CUSTOMER SERVICE &amp; BILLING" data-zh="售后与结算政策">CUSTOMER SERVICE &amp; BILLING</div>
+  <h1 data-en="Refund Policy" data-zh="退款政策">Refund Policy</h1>
+  <div class="doc-meta" data-en="Last Updated: November 2026 · Effective Immediately" data-zh="更新日期：2026年11月 · 即日起生效">Last Updated: November 2026 · Effective Immediately</div>
+</div>
+
+<div class="doc-body">
+
+  <section>
+    <h2 data-en="1. Our Commitment &amp; Try-Before-You-Buy Philosophy" data-zh="1. 服务承诺与“先试后买”体验机制">1. Our Commitment &amp; Try-Before-You-Buy Philosophy</h2>
+    <p data-en="At DataBridge, we want you to be fully confident in the software you use for your spreadsheets and file workflows. To ensure that DataBridge Pro meets your requirements before spending any money, the software includes a generous, built-in <strong>3×3 free trial</strong> directly inside the desktop application." data-zh="在 DataBridge，我们希望您对用于日常办公与表格处理的软件充满信心。为确保 DataBridge Pro 在购买前即能完全满足您的实际业务需求，客户端直接内置了慷慨的 <strong>3×3 独立免费体验额度</strong>。">At DataBridge, we want you to be fully confident in the software you use for your spreadsheets and file workflows. To ensure that DataBridge Pro meets your requirements before spending any money, the software includes a generous, built-in <strong>3×3 free trial</strong> directly inside the desktop application.</p>
+    <div class="callout">
+      <p data-en="<strong>Zero-Risk Testing:</strong> You can perform 3 independent successful exports for Smart Table Cleanup, 3 for Table Join, and 3 for Multi-Sheet Merge (up to 9 free Pro exports in total) without entering any payment method or credit card details. We strongly encourage all users to verify real-world file compatibility using these free trial exports prior to subscribing." data-zh="<strong>零门槛效果验证：</strong>您无需绑定任何信用卡或支付方式，即可直接使用智能表头整理 3 次、双表关联 3 次与多表合并 3 次（共计 9 次免费完整导出）。我们强烈建议用户在付费订阅前，先使用该免费额度实际测试您的表格数据。"><strong>Zero-Risk Testing:</strong> You can perform 3 independent successful exports for Smart Table Cleanup, 3 for Table Join, and 3 for Multi-Sheet Merge (up to 9 free Pro exports in total) without entering any payment method or credit card details. We strongly encourage all users to verify real-world file compatibility using these free trial exports prior to subscribing.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="2. Merchant of Record &amp; Legal Framework" data-zh="2. 结算主体与法律依据">2. Merchant of Record &amp; Legal Framework</h2>
+    <p data-en="All international commercial sales and subscription transactions for DataBridge Pro are conducted by <strong>Paddle.com Inc. / Paddle Payments Limited ('Paddle')</strong> as our authorized Merchant of Record. Paddle processes all customer payments, invoices, currency exchanges, and returns in accordance with applicable consumer protection regulations and Paddle's standard buyer terms." data-zh="DataBridge Pro 专业版的全部国际商业订单由官方授权商户与记录经销商 <strong>Paddle.com Inc. / Paddle Payments Limited（简称“Paddle”）</strong>负责承办。Paddle 依据适用的消费者权益法规及 Paddle 官方买家协议，统筹处理支付扣款、增值税开具与退款执行。">All international commercial sales and subscription transactions for DataBridge Pro are conducted by <strong>Paddle.com Inc. / Paddle Payments Limited ('Paddle')</strong> as our authorized Merchant of Record. Paddle processes all customer payments, invoices, currency exchanges, and returns in accordance with applicable consumer protection regulations and Paddle's standard buyer terms.</p>
+    <p data-en="Refund requests are evaluated fairly based on actual product performance, billing accuracy, and applicable legal consumer rights. We do not make deceptive or unverified claims of unconditional lifetime refunds." data-zh="所有退款请求均本着客观公正、符合法律法规与真实业务实际的原则予以审查办理，绝不进行虚假不可信的无条件承诺。">Refund requests are evaluated fairly based on actual product performance, billing accuracy, and applicable legal consumer rights. We do not make deceptive or unverified claims of unconditional lifetime refunds.</p>
+  </section>
+
+  <section>
+    <h2 data-en="3. Refund Eligibility &amp; Qualifying Circumstances" data-zh="3. 退款申请适用情形">3. Refund Eligibility &amp; Qualifying Circumstances</h2>
+    <p data-en="Customers may request a refund under the following valid conditions:" data-zh="客户在以下合理情形下可申请退款审核：">Customers may request a refund under the following valid conditions:</p>
+    <ul>
+      <li data-en="<strong>Unresolved Technical Issues:</strong> If DataBridge Pro fails to function or consistently crashes on an officially supported operating system (macOS 12+ Apple Silicon or Windows 10/11 64-bit), and our technical team is unable to resolve or provide a workaround within a reasonable period." data-zh="<strong>无法解决的技术故障：</strong>在官方受支持的操作系统环境（macOS 12+ 或 Windows 10/11 64位）中，若软件核心功能存在无法正常运行的缺陷且技术团队未能在合理时间内提供有效修复或方案。"><strong>Unresolved Technical Issues:</strong> If DataBridge Pro fails to function or consistently crashes on an officially supported operating system (macOS 12+ Apple Silicon or Windows 10/11 64-bit), and our technical team is unable to resolve or provide a workaround within a reasonable period.</li>
+      <li data-en="<strong>Duplicate or Erroneous Charges:</strong> If you were accidentally billed more than once for the same subscription period due to a payment processing glitch, the redundant transaction will be promptly refunded." data-zh="<strong>重复或异常扣款：</strong>因网络延迟或结算异常导致的同周期重复扣费，经核实后多扣款项将全额退还。"><strong>Duplicate or Erroneous Charges:</strong> If you were accidentally billed more than once for the same subscription period due to a payment processing glitch, the redundant transaction will be promptly refunded.</li>
+      <li data-en="<strong>Statutory Consumer Rights (EU/UK/EEA):</strong> If you reside in the European Union, United Kingdom, or another jurisdiction with statutory right-of-withdrawal protections, you are entitled to cancel your initial subscription within 14 days of purchase in accordance with applicable statutory law." data-zh="<strong>法定撤回权（欧盟/英国/欧洲经济区等）：</strong>位于欧盟、英国等享有法定消费者冷静期保护国家或地区的用户，自初始购买之日起 14 天内享有法定撤回权。"><strong>Statutory Consumer Rights (EU/UK/EEA):</strong> If you reside in the European Union, United Kingdom, or another jurisdiction with statutory right-of-withdrawal protections, you are entitled to cancel your initial subscription within 14 days of purchase in accordance with applicable statutory law.</li>
+      <li data-en="<strong>Accidental Auto-Renewal:</strong> If your monthly recurring subscription renewed and you contact us within 48 to 72 hours of the charge without having used Pro exports during the new billing cycle, we will happily process a cancellation and refund for the renewed month." data-zh="<strong>非主观意愿的自动续费：</strong>若月度续费发生后您未在新计费周期内使用任何 Pro 导出功能，且在扣款后 48 至 72 小时内联系我们申请，我们将协助办理取消并退还当期续费款项。"><strong>Accidental Auto-Renewal:</strong> If your monthly recurring subscription renewed and you contact us within 48 to 72 hours of the charge without having used Pro exports during the new billing cycle, we will happily process a cancellation and refund for the renewed month.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-en="4. Non-Refundable Situations" data-zh="4. 不予退款的情形">4. Non-Refundable Situations</h2>
+    <p data-en="To prevent fraud and maintain fair service for all users, refunds cannot be granted in the following scenarios:" data-zh="为防范滥用并维护公平的服务环境，以下情形通常不予办理退款：">To prevent fraud and maintain fair service for all users, refunds cannot be granted in the following scenarios:</p>
+    <ul>
+      <li data-en="Requests submitted after extensive usage of Pro features throughout the billing cycle." data-zh="在订阅周期内已大量高频使用 Pro 功能并完成批量导出后提出的退款申请。">Requests submitted after extensive usage of Pro features throughout the billing cycle.</li>
+      <li data-en="Incompatibility with unsupported operating systems (e.g. outdated Windows 7/8 or Linux, which are explicitly stated as unsupported)." data-zh="因尝试在官方明确标明不予支持的环境（如 Windows 7/8、Linux 等）运行而要求的退款。">Incompatibility with unsupported operating systems (e.g. outdated Windows 7/8 or Linux, which are explicitly stated as unsupported).</li>
+      <li data-en="Transactions involving fraudulent payment disputes or unauthorized license token resale/tampering." data-zh="涉及恶意拒付、非法转售或破解篡改授权凭据的行为。">Transactions involving fraudulent payment disputes or unauthorized license token resale/tampering.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-en="5. How to Request a Refund" data-zh="5. 退款申请办理流程">5. How to Request a Refund</h2>
+    <p data-en="You can submit a refund request quickly through either of the following two channels:" data-zh="您可以通过以下任一官方途径提交退款申请：">You can submit a refund request quickly through either of the following two channels:</p>
+
+    <div class="step-card">
+      <h3 data-en="Option A: Direct via Paddle Buyer Portal (Fastest)" data-zh="途径一：通过 Paddle 买家中心自助申请（推荐，处理最快）">Option A: Direct via Paddle Buyer Portal (Fastest)</h3>
+      <p data-en="1. Visit the Paddle Buyer Portal at <a href='https://checkout.paddle.com' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>checkout.paddle.com</a>.<br>2. Enter the email address used during purchase to receive a secure login link.<br>3. Locate your DataBridge Pro transaction, view the receipt, and select 'Request a refund' or cancel subscription.<br>4. Paddle's billing team will review and process the request directly." data-zh="1. 访问 Paddle 客户中心：<a href='https://checkout.paddle.com' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>checkout.paddle.com</a>。<br>2. 输入付款时填写的邮箱获取安全登录链接。<br>3. 找到您的 DataBridge Pro 交易账单，点击申请退款或取消订阅。<br>4. Paddle 官方客服专员将直接按规则审核并办理原路返还。">1. Visit the Paddle Buyer Portal at <a href='https://checkout.paddle.com' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>checkout.paddle.com</a>.<br>2. Enter the email address used during purchase to receive a secure login link.<br>3. Locate your DataBridge Pro transaction, view the receipt, and select 'Request a refund' or cancel subscription.<br>4. Paddle's billing team will review and process the request directly.</p>
+    </div>
+
+    <div class="step-card">
+      <h3 data-en="Option B: Via DataBridge Official Support" data-zh="途径二：联系 DataBridge 官方技术与支持团队">Option B: Via DataBridge Official Support</h3>
+      <p data-en="Send an email to <a href='mailto:support@databridge.app' style='color:var(--accent);text-decoration:underline;'>support@databridge.app</a> with the following details:<br>• Subject: <em>Refund Request - [Your Order/Transaction ID]</em><br>• The email address provided during checkout<br>• The Paddle Transaction ID (e.g., <code>txn_...</code>) or Subscription ID (<code>sub_...</code>)<br>• A brief description of the technical issue or reason for the request<br>Our team reviews and responds to all inquiries within 24 to 48 business hours." data-zh="发送邮件至 <a href='mailto:support@databridge.app' style='color:var(--accent);text-decoration:underline;'>support@databridge.app</a>，请附带以下必要信息：<br>• 邮件主题：<em>退款申请 - [您的交易订单号]</em><br>• 结账时使用的付款邮箱地址<br>• Paddle 交易流水号（如 <code>txn_...</code>）或订阅编号（<code>sub_...</code>）<br>• 遇到的问题简述或申请原因<br>我们将在 24 至 48 个工作小时内协助您完成核实与退款发起。">Send an email to <a href='mailto:support@databridge.app' style='color:var(--accent);text-decoration:underline;'>support@databridge.app</a> with the following details:<br>• Subject: <em>Refund Request - [Your Order/Transaction ID]</em><br>• The email address provided during checkout<br>• The Paddle Transaction ID (e.g., <code>txn_...</code>) or Subscription ID (<code>sub_...</code>)<br>• A brief description of the technical issue or reason for the request<br>Our team reviews and responds to all inquiries within 24 to 48 business hours.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="6. Refund Processing Time &amp; Method" data-zh="6. 退款到账时限与退款路径">6. Refund Processing Time &amp; Method</h2>
+    <p data-en="Once approved, refunds are credited back to the original payment method used at the time of purchase (credit card, debit card, Apple Pay, or PayPal). Standard processing time is typically <strong>3 to 10 business days</strong>, depending on the clearing policies of your card issuer or banking institution." data-zh="退款一旦审批通过，款项将通过原支付路径原路退回（如信用卡、借记卡、Apple Pay 或 PayPal 账户）。根据各发卡银行及金融机构的结算周期，通常会在 <strong>3 至 10 个工作日内</strong> 确认入账。">Once approved, refunds are credited back to the original payment method used at the time of purchase (credit card, debit card, Apple Pay, or PayPal). Standard processing time is typically <strong>3 to 10 business days</strong>, depending on the clearing policies of your card issuer or banking institution.</p>
+    <p data-en="When a refund is completed, the corresponding DataBridge Pro subscription will be marked as refunded in our licensing server, and the desktop client will return to the Free Core Edition. Your existing local files will never be deleted or altered." data-zh="退款完成后，发卡服务端将同步标记授权状态变更，客户端将平滑回退至基础免费版，您的本地文件绝不会受任何影响。">When a refund is completed, the corresponding DataBridge Pro subscription will be marked as refunded in our licensing server, and the desktop client will return to the Free Core Edition. Your existing local files will never be deleted or altered.</p>
+  </section>
+
+  <section>
+    <h2 data-en="7. Contact Information" data-zh="7. 售后咨询联系通道">7. Contact Information</h2>
+    <p data-en="For any questions regarding billing, cancellations, or refunds, please reach out to us:" data-zh="如有任何关于账单、续费取消或退款政策的疑问，请随时联系：">For any questions regarding billing, cancellations, or refunds, please reach out to us:</p>
+    <ul>
+      <li>Support Email: <a href="mailto:support@databridge.app" style="color:var(--accent);text-decoration:underline;">support@databridge.app</a></li>
+      <li>Paddle Buyer Portal: <a href="https://checkout.paddle.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">checkout.paddle.com</a></li>
+      <li>GitHub Community: <a href="https://github.com/durian9188-jpg/databridge-releases/discussions" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">github.com/durian9188-jpg/databridge-releases/discussions</a></li>
+    </ul>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+  <div>
+    <span>© 2026 DataBridge.</span>
+    <span style="margin-left: 8px;" data-en="Made for everyday file tasks." data-zh="为日常文件处理而设计。">Made for everyday file tasks.</span>
+  </div>
+  <div class="footer-links">
+    <a href="pricing.html" data-en="Pricing" data-zh="价格方案">Pricing</a>
+    <a href="terms.html" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+    <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+    <a href="refund.html" data-en="Refund Policy" data-zh="退款政策">Refund Policy</a>
+    <a href="mailto:support@databridge.app" data-en="Contact Support" data-zh="联系支持">Contact Support</a>
+  </div>
+</div>
+</footer>
+
+<script>
+let currentLang='en';
+const languagePicker=document.getElementById('languagePicker');
+const languageTrigger=document.getElementById('langBtn');
+const languageMenu=document.getElementById('languageMenu');
+const languageLabel=document.getElementById('langLabel');
+
+function setLanguage(lang){
+  if(lang!=='en' && lang!=='zh') return;
+  currentLang=lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-CN';
+  document.querySelectorAll('[data-en][data-zh]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+lang);
+  });
+  languageLabel.textContent=lang==='en'?'EN':'中文';
+  languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+    const selected=button.dataset.language===lang;
+    button.setAttribute('aria-checked',String(selected));
+    button.querySelector('.language-check').textContent=selected?'✓':'';
+  });
+  try{ localStorage.setItem('databridge-language',lang); }catch(e){}
+  closeLanguageMenu();
+}
+
+function closeLanguageMenu(){
+  languageMenu.hidden=true;
+  languageTrigger.setAttribute('aria-expanded','false');
+}
+
+languageTrigger.addEventListener('click',()=>{
+  const willOpen=languageMenu.hidden;
+  languageMenu.hidden=!willOpen;
+  languageTrigger.setAttribute('aria-expanded',String(willOpen));
+});
+
+languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    setLanguage(button.dataset.language);
+    languageTrigger.focus();
+  });
+});
+
+document.addEventListener('click',event=>{
+  if(!languagePicker.contains(event.target)){
+    closeLanguageMenu();
+  }
+});
+
+let savedLanguage='en';
+try{
+  const stored=localStorage.getItem('databridge-language');
+  if(stored==='en'||stored==='zh') savedLanguage=stored;
+}catch(e){}
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>

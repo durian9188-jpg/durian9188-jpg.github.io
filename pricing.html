@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DataBridge Pro Pricing: Simple, transparent subscription for advanced Excel workflows and batch processing.">
+<title>Pricing — DataBridge Pro</title>
+<style>
+:root{
+  --ink:#171717;
+  --muted:#777;
+  --line:#e9e9e7;
+  --paper:#fff;
+  --soft:#f7f7f5;
+  --accent:#8d7359;
+  --accent-light:#f4efe9;
+  --success:#166534;
+  --success-bg:#f0fdf4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,calc(100% - 48px));margin:auto}
+header{height:76px;border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:22px;font-weight:750;letter-spacing:-.8px}
+.brand span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-link{font-size:13px;color:#555;transition:color .15s}
+.nav-link:hover{color:#111}
+.nav-link.active{color:var(--ink);font-weight:600}
+.lang{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;cursor:pointer}
+.page-header{text-align:center;padding:75px 0 45px}
+.badge{display:inline-block;padding:7px 15px;border:1px solid var(--line);border-radius:30px;font-size:12px;color:#777;background:#fafafa;font-weight:600}
+h1{font-size:clamp(36px,5vw,56px);letter-spacing:-2.5px;line-height:1.15;margin:20px 0 16px;font-weight:750}
+.subtitle{font-size:17px;color:#737373;max-width:620px;margin:0 auto;line-height:1.8}
+
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:35px auto 65px;max-width:960px}
+.plan-card{border:1px solid var(--line);border-radius:20px;padding:40px;background:white;display:flex;flex-direction:column;position:relative}
+.plan-card.featured{border:2px solid var(--accent);box-shadow:0 16px 45px rgba(141,115,89,0.12)}
+.plan-tag{position:absolute;top:-13px;right:28px;background:var(--accent);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase}
+.plan-name{font-size:22px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+.plan-desc{font-size:14px;color:var(--muted);min-height:42px;line-height:1.6}
+.price-box{display:flex;align-items:baseline;gap:6px;margin:28px 0 20px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.price-currency{font-size:22px;font-weight:700}
+.price-amount{font-size:46px;font-weight:800;letter-spacing:-2px}
+.price-period{font-size:14px;color:var(--muted)}
+.feature-list{list-style:none;padding:0;margin:0 0 32px;flex:1}
+.feature-list li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:14px;line-height:1.6;color:#333}
+.feature-icon{color:var(--accent);font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s ease;text-align:center}
+.btn-primary{background:#191919;color:white}
+.btn-primary:hover{background:#333}
+.btn-outline{background:var(--soft);color:#333;border:1px solid var(--line)}
+.btn-outline:hover{background:#ebebe8}
+
+.trial-banner{background:var(--success-bg);border:1px solid #bbf7d0;border-radius:16px;padding:26px 32px;margin:0 auto 65px;max-width:960px}
+.trial-banner h3{color:var(--success);font-size:17px;font-weight:700;margin:0 0 6px}
+.trial-banner p{color:#14532d;font-size:14px;margin:0;line-height:1.7}
+
+.faq-section{max-width:960px;margin:0 auto 85px}
+.faq-heading{text-align:center;margin-bottom:45px}
+.faq-heading h2{font-size:32px;letter-spacing:-1.2px;margin:0 0 10px}
+.faq-heading p{color:var(--muted);font-size:15px;margin:0}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.faq-item{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--soft)}
+.faq-item h4{font-size:16px;font-weight:650;margin:0 0 10px;letter-spacing:-.3px}
+.faq-item p{font-size:13px;color:#555;margin:0;line-height:1.8}
+
+footer{border-top:1px solid var(--line);padding:35px 0;color:#999;font-size:12px}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#777;transition:color .15s}
+.footer-links a:hover{color:#111}
+
+@media(max-width:768px){
+  header{height:66px}
+  .pricing-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .nav-link{display:none}
+}
+
+/* Language picker */
+.language-picker{position:relative}
+.language-trigger{display:flex;align-items:center;justify-content:center;gap:8px;min-width:76px;height:38px;font-size:13px;font-weight:600;color:#333;transition:background .15s ease}
+.language-trigger:hover{background:#f7f7f5}
+.language-chevron{font-size:17px;line-height:1;color:#888}
+.language-menu{position:absolute;top:calc(100% + 9px);right:0;width:166px;padding:6px;background:#fff;border:1px solid #e9e9e7;border-radius:12px;box-shadow:0 12px 35px rgba(0,0,0,.09);z-index:100}
+.language-menu[hidden]{display:none}
+.language-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:0;border-radius:8px;background:transparent;color:#444;font:inherit;font-size:13px;text-align:left;cursor:pointer}
+.language-menu button:hover{background:#f6f6f4}
+.language-menu button[aria-checked="true"]{color:#171717;font-weight:600}
+.language-check{color:#8d7359}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="brand" href="index.html">Data<span>Bridge</span></a>
+<div class="nav-right">
+<a class="nav-link" href="index.html#features" data-en="Features" data-zh="功能">Features</a>
+<a class="nav-link active" href="pricing.html" data-en="Pricing" data-zh="价格">Pricing</a>
+<a class="nav-link" href="index.html#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
+<a class="nav-link" href="terms.html" data-en="Terms" data-zh="条款">Terms</a>
+<a class="nav-link" href="refund.html" data-en="Refunds" data-zh="退款">Refunds</a>
+<a class="nav-link" href="index.html#download" data-en="Download" data-zh="下载">Download</a>
+<div class="language-picker" id="languagePicker">
+  <button class="lang language-trigger" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu">
+    <span id="langLabel">EN</span>
+    <span class="language-chevron" aria-hidden="true">⌄</span>
+  </button>
+  <div class="language-menu" id="languageMenu" role="menu" hidden>
+    <button type="button" role="menuitemradio" aria-checked="true" data-language="en">
+      <span>English</span><span class="language-check">✓</span>
+    </button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-language="zh">
+      <span>简体中文</span><span class="language-check"></span>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container">
+
+<div class="page-header">
+  <div class="badge" data-en="SIMPLE &amp; TRANSPARENT" data-zh="清晰透明与自由体验">SIMPLE &amp; TRANSPARENT</div>
+  <h1 data-en="Choose the plan that fits your work." data-zh="选择适合您日常办公的方案">Choose the plan that fits your work.</h1>
+  <p class="subtitle" data-en="Permanent free offline converters for daily media and document tasks. Powerful Excel Pro tools with a generous 3×3 trial and cancel-anytime recurring subscription." data-zh="基础格式转换永久免费使用；高级 Excel 工具内置 3×3 独立免费体验，专业版按月订阅，随时自主取消。">Permanent free offline converters for daily media and document tasks. Powerful Excel Pro tools with a generous 3×3 trial and cancel-anytime recurring subscription.</p>
+</div>
+
+<div class="trial-banner">
+  <h3 data-en="✨ 3×3 Free Export Trial Included in Desktop App" data-zh="✨ 桌面端内置 3×3 独立免费成功导出体验">✨ 3×3 Free Export Trial Included in Desktop App</h3>
+  <p data-en="Every user can experience up to 9 free Pro exports directly in the desktop app (3 independent successful exports for Smart Table Cleanup, 3 for Table Join, and 3 for Multi-Sheet Merge). No payment details or account registration required to test." data-zh="每位用户可在客户端直接享受三项高级功能各 3 次独立免费成功导出（共计 9 次免费体验额度，包含智能整理、双表关联与多表拼接）。无需填写支付信息，随时打开即可验证效果。">Every user can experience up to 9 free Pro exports directly in the desktop app (3 independent successful exports for Smart Table Cleanup, 3 for Table Join, and 3 for Multi-Sheet Merge). No payment details or account registration required to test.</p>
+</div>
+
+<div class="pricing-grid">
+
+  <!-- Free Plan -->
+  <div class="plan-card">
+    <div class="plan-name" data-en="Free Core Edition" data-zh="基础免费版">Free Core Edition</div>
+    <div class="plan-desc" data-en="Essential local document and media conversion tools. Free forever." data-zh="日常基础文件与音视频格式转换工具，永久免费。">Essential local document and media conversion tools. Free forever.</div>
+    <div class="price-box">
+      <span class="price-currency">US$</span>
+      <span class="price-amount">0</span>
+      <span class="price-period" data-en="/ forever" data-zh="/ 永久免费">/ forever</span>
+    </div>
+    <ul class="feature-list">
+      <li><span class="feature-icon">✓</span> <span data-en="Batch Image Conversion (JPG, PNG, WEBP, etc.)" data-zh="图片批量格式转换（JPG、PNG、WEBP 等）">Batch Image Conversion (JPG, PNG, WEBP, etc.)</span></li>
+      <li><span class="feature-icon">✓</span> <span data-en="Local Audio &amp; Video Conversion (bundled LGPL FFmpeg)" data-zh="内置本地音视频格式转码（LGPL FFmpeg 引擎）">Local Audio &amp; Video Conversion (bundled LGPL FFmpeg)</span></li>
+      <li><span class="feature-icon">✓</span> <span data-en="AI Notes &amp; Markdown to formatted Word (.docx)" data-zh="AI 草稿文本与剪贴板表格转 Word (.docx)">AI Notes &amp; Markdown to formatted Word (.docx)</span></li>
+      <li><span class="feature-icon">✓</span> <span data-en="100% Local file processing — zero cloud uploads" data-zh="100% 本地处理，文件绝不上传云端">100% Local file processing — zero cloud uploads</span></li>
+      <li><span class="feature-icon">✓</span> <span data-en="Safe Output architecture (never overwrites original files)" data-zh="安全防覆盖机制（始终另存为新文件，保护原始源文件）">Safe Output architecture (never overwrites original files)</span></li>
+      <li><span class="feature-icon">✓</span> <span data-en="Includes 3×3 free trial exports for Excel Pro tools" data-zh="内置 Excel Pro 高级工具 3×3 独立免费体验额度">Includes 3×3 free trial exports for Excel Pro tools</span></li>
+    </ul>
+    <a class="btn btn-outline" href="index.html#download" data-en="Download Free App" data-zh="免费下载桌面客户端">Download Free App</a>
+  </div>
+
+  <!-- Pro Plan -->
+  <div class="plan-card featured">
+    <div class="plan-tag" data-en="FULL POWER" data-zh="商业提效推荐">FULL POWER</div>
+    <div class="plan-name" data-en="DataBridge Pro" data-zh="Excel Pro 专业版">DataBridge Pro</div>
+    <div class="plan-desc" data-en="Unlock unlimited automated spreadsheet normalization and multi-table merges." data-zh="解锁无限次 Excel 智能表头对齐、异构表格拼接与双表主键匹配。">Unlock unlimited automated spreadsheet normalization and multi-table merges.</div>
+    <div class="price-box">
+      <span class="price-currency">US$</span>
+      <span class="price-amount">12.99</span>
+      <span class="price-period" data-en="/ month · billed recurring" data-zh="/ 月 · 每月自动续费">/ month · billed recurring</span>
+    </div>
+    <ul class="feature-list">
+      <li><span class="feature-icon">★</span> <span data-en="Unlimited Smart Table Cleanup &amp; Header Alignment" data-zh="无限次 Excel / CSV 智能表头对齐与异常数据高亮">Unlimited Smart Table Cleanup &amp; Header Alignment</span></li>
+      <li><span class="feature-icon">★</span> <span data-en="Supplier Quote Alias Mapping (with human confirmation)" data-zh="供应商报价单字段别名智能建议（关键数值严格人工复核）">Supplier Quote Alias Mapping (with human confirmation)</span></li>
+      <li><span class="feature-icon">★</span> <span data-en="Unlimited Multi-Sheet &amp; CSV Batch Merging" data-zh="无限次 多份同构表格与 CSV 批量自动拼接合并">Unlimited Multi-Sheet &amp; CSV Batch Merging</span></li>
+      <li><span class="feature-icon">★</span> <span data-en="Unlimited Dual-Table Key Matching (instant preview)" data-zh="无限次 双表主键字段秒级关联匹配与未匹配预警">Unlimited Dual-Table Key Matching (instant preview)</span></li>
+      <li><span class="feature-icon">★</span> <span data-en="Ed25519 Cryptographic offline verification token" data-zh="基于 Ed25519 非对称公钥的离线安全防伪验签">Ed25519 Cryptographic offline verification token</span></li>
+      <li><span class="feature-icon">★</span> <span data-en="Cancel anytime with 1 click via Paddle Buyer Portal" data-zh="随时在 Paddle 买家中心一键取消，无隐藏续费">Cancel anytime with 1 click via Paddle Buyer Portal</span></li>
+    </ul>
+    <a class="btn btn-primary" href="checkout.html" data-en="Subscribe to DataBridge Pro →" data-zh="前往安全收银台订阅 Pro →">Subscribe to DataBridge Pro →</a>
+  </div>
+
+</div>
+
+<!-- FAQ & Subscription Details -->
+<div class="faq-section">
+  <div class="faq-heading">
+    <h2 data-en="Frequently Asked Questions" data-zh="常见问题与订阅说明">Frequently Asked Questions</h2>
+    <p data-en="Everything you need to know about billing, license activation, and cancellation." data-zh="关于付款、授权激活与取消订阅的详细说明。">Everything you need to know about billing, license activation, and cancellation.</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h4 data-en="How does the recurring billing work?" data-zh="按月自动续费机制是如何运作的？">How does the recurring billing work?</h4>
+      <p data-en="DataBridge Pro is billed monthly at US$ 12.99 (or local domestic equivalent ¥9.99/mo). Your subscription renews automatically on the same day each month until you cancel. All payments are processed securely by Paddle, our Merchant of Record." data-zh="DataBridge Pro 海外订阅价格为 US$ 12.99/月（国内维持 ¥9.99/月）。每月在同一账单日自动续费，直至您主动取消。所有交易由官方支付合作伙伴 Paddle (Merchant of Record) 负责安全处理。">DataBridge Pro is billed monthly at US$ 12.99 (or local domestic equivalent ¥9.99/mo). Your subscription renews automatically on the same day each month until you cancel. All payments are processed securely by Paddle, our Merchant of Record.</p>
+    </div>
+    <div class="faq-item">
+      <h4 data-en="How do I cancel my subscription?" data-zh="如何随时取消订阅续费？">How do I cancel my subscription?</h4>
+      <p data-en="You can cancel anytime without penalty. Simply visit the Paddle Buyer Portal at checkout.paddle.com using the email you entered during checkout, or email support@databridge.app. Once canceled, your Pro access remains fully active until the end of the current billing cycle." data-zh="您可以随时取消，无任何附加费用。访问 Paddle 买家中心（checkout.paddle.com）输入结账邮箱即可一键取消续费，或发邮件至 support@databridge.app。取消后，您的 Pro 权限仍可使用至当前周期结束。">You can cancel anytime without penalty. Simply visit the Paddle Buyer Portal at checkout.paddle.com using the email you entered during checkout, or email support@databridge.app. Once canceled, your Pro access remains fully active until the end of the current billing cycle.</p>
+    </div>
+    <div class="faq-item">
+      <h4 data-en="How do I activate Pro after purchase?" data-zh="付款完成后如何激活客户端？">How do I activate Pro after purchase?</h4>
+      <p data-en="After completing checkout, open DataBridge desktop app, click 'Upgrade Pro' → 'Restore License', and enter the email address you used at checkout. Your cryptographic Pro license will be downloaded and verified immediately on your computer." data-zh="完成结账后，打开 DataBridge 桌面客户端，点击「升级 Pro」面板中的「恢复授权」，输入结账时填写的邮箱地址即可自动激活并离线使用。">After completing checkout, open DataBridge desktop app, click 'Upgrade Pro' → 'Restore License', and enter the email address you used at checkout. Your cryptographic Pro license will be downloaded and verified immediately on your computer.</p>
+    </div>
+    <div class="faq-item">
+      <h4 data-en="What is your refund policy?" data-zh="退款政策是怎样的？">What is your refund policy?</h4>
+      <p data-en="We encourage all users to test the 3×3 free trial before purchasing. If you encounter unresolved technical issues, accidental duplicate charges, or statutory cancellation requests, you may request a refund via Paddle or by emailing support@databridge.app. See our full Refund Policy for details." data-zh="我们建议用户在购买前充分使用 3×3 免费导出体验。若发生技术缺陷无法解决、重复扣费或法定撤回周期内申请，可通过 Paddle 买家中心或联系 support@databridge.app 申请退款，详见退款政策页面。">We encourage all users to test the 3×3 free trial before purchasing. If you encounter unresolved technical issues, accidental duplicate charges, or statutory cancellation requests, you may request a refund via Paddle or by emailing support@databridge.app. See our full Refund Policy for details.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+  <div>
+    <span>© 2026 DataBridge.</span>
+    <span style="margin-left: 8px;" data-en="Made for everyday file tasks." data-zh="为日常文件处理而设计。">Made for everyday file tasks.</span>
+  </div>
+  <div class="footer-links">
+    <a href="pricing.html" data-en="Pricing" data-zh="价格方案">Pricing</a>
+    <a href="terms.html" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+    <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+    <a href="refund.html" data-en="Refund Policy" data-zh="退款政策">Refund Policy</a>
+    <a href="mailto:support@databridge.app" data-en="Contact Support" data-zh="联系支持">Contact Support</a>
+  </div>
+</div>
+</footer>
+
+<script>
+let currentLang='en';
+const languagePicker=document.getElementById('languagePicker');
+const languageTrigger=document.getElementById('langBtn');
+const languageMenu=document.getElementById('languageMenu');
+const languageLabel=document.getElementById('langLabel');
+
+function setLanguage(lang){
+  if(lang!=='en' && lang!=='zh') return;
+  currentLang=lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-CN';
+  document.querySelectorAll('[data-en][data-zh]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+lang);
+  });
+  languageLabel.textContent=lang==='en'?'EN':'中文';
+  languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+    const selected=button.dataset.language===lang;
+    button.setAttribute('aria-checked',String(selected));
+    button.querySelector('.language-check').textContent=selected?'✓':'';
+  });
+  try{ localStorage.setItem('databridge-language',lang); }catch(e){}
+  closeLanguageMenu();
+}
+
+function closeLanguageMenu(){
+  languageMenu.hidden=true;
+  languageTrigger.setAttribute('aria-expanded','false');
+}
+
+languageTrigger.addEventListener('click',()=>{
+  const willOpen=languageMenu.hidden;
+  languageMenu.hidden=!willOpen;
+  languageTrigger.setAttribute('aria-expanded',String(willOpen));
+});
+
+languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    setLanguage(button.dataset.language);
+    languageTrigger.focus();
+  });
+});
+
+document.addEventListener('click',event=>{
+  if(!languagePicker.contains(event.target)){
+    closeLanguageMenu();
+  }
+});
+
+let savedLanguage='en';
+try{
+  const stored=localStorage.getItem('databridge-language');
+  if(stored==='en'||stored==='zh') savedLanguage=stored;
+}catch(e){}
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>

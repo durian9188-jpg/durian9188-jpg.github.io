@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DataBridge Official Portal — Simple desktop workspace for Excel normalization, CSV merge, table join, format conversion, and documents on macOS and Windows.">
+<title>DataBridge — Make files work together.</title>
+<style>
+:root{
+  --ink:#171717;
+  --muted:#777;
+  --line:#e9e9e7;
+  --paper:#fff;
+  --soft:#f7f7f5;
+  --accent:#8d7359;
+  --accent-light:#f4efe9;
+  --success:#166534;
+  --success-bg:#f0fdf4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,calc(100% - 48px));margin:auto}
+
+header{height:76px;border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:22px;font-weight:750;letter-spacing:-.8px}
+.brand span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-link{font-size:13px;color:#555;transition:color .15s}
+.nav-link:hover{color:#111}
+.nav-link.active{color:var(--ink);font-weight:600}
+.lang{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;cursor:pointer}
+
+.hero{text-align:center;padding:90px 0 65px}
+.badge{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:30px;font-size:12px;color:#777;background:#fafafa;font-weight:600}
+h1{font-size:clamp(42px,6.5vw,76px);letter-spacing:-3px;line-height:1.1;margin:26px 0 18px;font-weight:750}
+.hero p{font-size:18px;color:#737373;line-height:1.8;margin:0 auto;max-width:680px}
+.actions{display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.btn{padding:15px 26px;border-radius:12px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:all .15s ease}
+.primary{background:#191919;color:white}
+.primary:hover{background:#333}
+.outline{background:var(--soft);color:#222;border:1px solid var(--line)}
+.outline:hover{background:#ebebe8}
+
+.portal-notice{max-width:960px;margin:20px auto 45px;background:var(--accent-light);border:1px solid #e2d9cd;border-radius:16px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.portal-notice p{margin:0;font-size:14px;color:#5c4833;line-height:1.6}
+.portal-notice a{color:var(--accent);font-weight:700;text-decoration:underline}
+
+.preview-box{max-width:960px;margin:0 auto 75px;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 16px 50px rgba(0,0,0,0.06);background:white}
+.preview-header{background:#f9f9f8;padding:12px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:#dedede}
+.preview-img{width:100%;height:auto;display:block}
+
+section{padding:75px 0}
+.section-heading{text-align:center;margin-bottom:50px}
+.section-heading h2{font-size:36px;letter-spacing:-1.5px;margin:0 0 14px;font-weight:750}
+.section-heading p{color:#888;font-size:15px;max-width:680px;margin:0 auto;line-height:1.85}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{padding:30px;border:1px solid var(--line);border-radius:16px;min-height:210px;background:white}
+.card .icon{font-size:26px;margin-bottom:20px;color:var(--accent);font-weight:700}
+.card h3{font-size:17px;margin:0 0 10px;font-weight:700}
+.card p{font-size:13px;color:#777;line-height:1.8;margin:0}
+
+/* Pricing summary card */
+.pricing-section{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:85px 0}
+.pricing-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:960px;margin:auto}
+.plan-card{border:1px solid var(--line);border-radius:18px;padding:36px;background:white;display:flex;flex-direction:column}
+.plan-card.featured{border:2px solid var(--accent);box-shadow:0 12px 40px rgba(141,115,89,0.12)}
+.plan-title{font-size:22px;font-weight:700;margin-bottom:8px}
+.plan-desc{font-size:13px;color:var(--muted);min-height:40px;line-height:1.6}
+.price-row{display:flex;align-items:baseline;gap:6px;margin:24px 0 20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.price-val{font-size:42px;font-weight:800;letter-spacing:-2px}
+.price-unit{font-size:13px;color:var(--muted)}
+.feature-list{list-style:none;padding:0;margin:0 0 28px;flex:1}
+.feature-list li{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:13px;color:#333;line-height:1.6}
+.feature-list span.icon{color:var(--accent);font-weight:700}
+
+.privacy-banner{background:#faf9f6;border:1px solid #e8e4dd;border-radius:20px;padding:45px;max-width:960px;margin:65px auto}
+.privacy-banner h2{font-size:28px;letter-spacing:-1px;margin:0 0 12px;font-weight:750}
+.privacy-banner p{color:#666;font-size:14px;line-height:1.85;margin:0}
+
+.download{text-align:center;padding:95px 0}
+.download h2{font-size:42px;letter-spacing:-2px;margin:0 0 14px;font-weight:750}
+.download p{color:#777;font-size:15px;margin:0 auto 30px}
+
+footer{border-top:1px solid var(--line);padding:35px 0;color:#999;font-size:12px}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#777;transition:color .15s}
+.footer-links a:hover{color:#111}
+
+@media(max-width:768px){
+  header{height:66px}
+  .grid{grid-template-columns:1fr}
+  .pricing-wrapper{grid-template-columns:1fr}
+  .nav-link{display:none}
+}
+
+/* Language picker */
+.language-picker{position:relative}
+.language-trigger{display:flex;align-items:center;justify-content:center;gap:8px;min-width:76px;height:38px;font-size:13px;font-weight:600;color:#333;transition:background .15s ease}
+.language-trigger:hover{background:#f7f7f5}
+.language-chevron{font-size:17px;line-height:1;color:#888}
+.language-menu{position:absolute;top:calc(100% + 9px);right:0;width:166px;padding:6px;background:#fff;border:1px solid #e9e9e7;border-radius:12px;box-shadow:0 12px 35px rgba(0,0,0,.09);z-index:100}
+.language-menu[hidden]{display:none}
+.language-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:0;border-radius:8px;background:transparent;color:#444;font:inherit;font-size:13px;text-align:left;cursor:pointer}
+.language-menu button:hover{background:#f6f6f4}
+.language-menu button[aria-checked="true"]{color:#171717;font-weight:600}
+.language-check{color:#8d7359}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="brand" href="index.html">Data<span>Bridge</span></a>
+<div class="nav-right">
+<a class="nav-link" href="#features" data-en="Features" data-zh="核心功能">Features</a>
+<a class="nav-link" href="https://durian9188-jpg.github.io/databridge-website/" data-en="Product Website" data-zh="产品官网">Product Website</a>
+<a class="nav-link" href="pricing.html" data-en="Pricing" data-zh="价格方案">Pricing</a>
+<a class="nav-link" href="terms.html" data-en="Terms" data-zh="服务条款">Terms</a>
+<a class="nav-link" href="privacy.html" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+<a class="nav-link" href="refund.html" data-en="Refunds" data-zh="退款政策">Refunds</a>
+<a class="nav-link" href="#download" data-en="Download" data-zh="立即下载">Download</a>
+<div class="language-picker" id="languagePicker">
+  <button class="lang language-trigger" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu">
+    <span id="langLabel">EN</span>
+    <span class="language-chevron" aria-hidden="true">⌄</span>
+  </button>
+  <div class="language-menu" id="languageMenu" role="menu" hidden>
+    <button type="button" role="menuitemradio" aria-checked="true" data-language="en">
+      <span>English</span><span class="language-check">✓</span>
+    </button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-language="zh">
+      <span>简体中文</span><span class="language-check"></span>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</header>
+
+<main>
+
+<div class="container hero">
+  <div class="badge" data-en="DATABRIDGE OFFICIAL PORTAL" data-zh="DATABRIDGE 官方主站">DATABRIDGE OFFICIAL PORTAL</div>
+  <h1 data-en="Make files work together." data-zh="让日常文件处理协同高效。">Make files work together.</h1>
+  <p data-en="A simple, private desktop workspace for spreadsheet cleanup, batch merging, dual-table matching, media transcoding, and document generation on macOS and Windows." data-zh="专为日常办公打造的本地桌面工作台：表格批量合并、智能表头整理、双表主键对齐、本地音视频转换及文本转 Word，支持 macOS 与 Windows。">A simple, private desktop workspace for spreadsheet cleanup, batch merging, dual-table matching, media transcoding, and document generation on macOS and Windows.</p>
+  <div class="actions">
+    <a class="btn primary" href="#download" data-en="Download DataBridge →" data-zh="下载客户端 →">Download DataBridge →</a>
+    <a class="btn outline" href="https://durian9188-jpg.github.io/databridge-website/" data-en="Visit Full Product Website ↗" data-zh="访问产品完整官网 ↗">Visit Full Product Website ↗</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="portal-notice">
+    <div>
+      <strong data-en="Official Project &amp; Compliance Hub:" data-zh="官方服务与合规审核中心：">Official Project &amp; Compliance Hub:</strong>
+      <p data-en="Looking for interactive showcases, live checkout, and full documentation? Explore our dedicated product site at durian9188-jpg.github.io/databridge-website/." data-zh="如需查看交互演示、在线收银台及完整产品文档，请访问 DataBridge 产品专用站点 durian9188-jpg.github.io/databridge-website/。">Looking for interactive showcases, live checkout, and full documentation? Explore our dedicated product site at durian9188-jpg.github.io/databridge-website/.</p>
+    </div>
+    <a href="https://durian9188-jpg.github.io/databridge-website/" data-en="Open Product Site →" data-zh="前往产品站点 →">Open Product Site →</a>
+  </div>
+</div>
+
+<div class="container preview-box">
+  <div class="preview-header">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <span style="font-size:12px;color:#999;margin-left:6px;">DataBridge — Desktop Workspace</span>
+  </div>
+  <img class="preview-img" id="hero-en" src="databridge-app-en.png" alt="DataBridge Desktop Application">
+  <img class="preview-img" id="hero-zh" src="databridge-app-zh.png" alt="DataBridge 桌面工作台" hidden>
+</div>
+
+<section id="features">
+<div class="container">
+  <div class="section-heading">
+    <h2 data-en="All essential file tools in one desktop application." data-zh="常用文件处理工具，一个桌面应用搞定。">All essential file tools in one desktop application.</h2>
+    <p data-en="Designed for everyday business tasks. Clean messy spreadsheets, convert media formats, and generate standardized documents without cloud privacy worries." data-zh="专为日常办公提效打造：清洗异构报价单、批量拼接表格、转换打不开的音视频格式，绝无文件上传隐私担忧。">Designed for everyday business tasks. Clean messy spreadsheets, convert media formats, and generate standardized documents without cloud privacy worries.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">▤</div>
+      <h3 data-en="Spreadsheet Merge &amp; Cleanup" data-zh="表格批量合并与智能整理">Spreadsheet Merge &amp; Cleanup</h3>
+      <p data-en="Batch merge multiple Excel or CSV files. Automatically suggest alias mappings for supplier quotes while requiring human confirmation for business-critical values." data-zh="支持多份同构表格及 CSV 批量拼接合并。智能根据别名库建议报价单映射，关键数值严格由人工核对把关，绝无暗箱税率猜测。">Batch merge multiple Excel or CSV files. Automatically suggest alias mappings for supplier quotes while requiring human confirmation for business-critical values.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⌁</div>
+      <h3 data-en="Dual-Table Key Matching" data-zh="双表主键关联匹配">Dual-Table Key Matching</h3>
+      <p data-en="Match customer lists, invoices, or inventory records by a shared key column (phone, SKU, ID). Instant preview with unmatched warnings without formulas." data-zh="按物料编码、手机号等选定主键建立两表关联，即时预览匹配结果并高亮未匹配记录，告别繁琐的 VLOOKUP 公式。">Match customer lists, invoices, or inventory records by a shared key column (phone, SKU, ID). Instant preview with unmatched warnings without formulas.</p>
+    </div>
+    <div class="card">
+      <div class="icon">≡</div>
+      <h3 data-en="AI Notes &amp; Text to Word" data-zh="AI 草稿与文本转 Word">AI Notes &amp; Text to Word</h3>
+      <p data-en="Convert Markdown text, AI drafts, and clipboard tables directly into beautifully formatted Word (.docx) documents with clean typography." data-zh="快速将 Markdown 格式、AI 生成文本及剪贴板表格导出为标准 Word (.docx) 文档，保留结构化标题与表格排版。">Convert Markdown text, AI drafts, and clipboard tables directly into beautifully formatted Word (.docx) documents with clean typography.</p>
+    </div>
+    <div class="card">
+      <div class="icon">▧</div>
+      <h3 data-en="Batch Image Conversion" data-zh="图片批量格式转换">Batch Image Conversion</h3>
+      <p data-en="Batch convert common image formats such as WEBP, PNG, and JPG locally on your computer with customizable output parameters." data-zh="本地批量转换 WEBP、PNG、JPG 等常用图像格式，随心调整质量参数，满足办公插入演示与排版需求。">Batch convert common image formats such as WEBP, PNG, and JPG locally on your computer with customizable output parameters.</p>
+    </div>
+    <div class="card">
+      <div class="icon">▷</div>
+      <h3 data-en="Local Audio &amp; Video Conversion" data-zh="内置本地音视频转码">Local Audio &amp; Video Conversion</h3>
+      <p data-en="Transcode media files locally using bundled LGPL FFmpeg and platform hardware acceleration without third-party cloud uploads." data-zh="依托内置 LGPL FFmpeg 与系统硬件加速，在本地电脑完成音频与视频转码，保护机密影音素材不外泄。">Transcode media files locally using bundled LGPL FFmpeg and platform hardware acceleration without third-party cloud uploads.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⌘</div>
+      <h3 data-en="Safe Output Protection" data-zh="安全输出与源文件保护">Safe Output Protection</h3>
+      <p data-en="Non-destructive Safe Output architecture ensures source files are never altered or overwritten. Outputs are always written to fresh destination files." data-zh="非破坏性安全输出机制确保原始文件绝不被直接覆盖修改，处理结果始终输出为新文件，保障数据安全可逆。">Non-destructive Safe Output architecture ensures source files are never altered or overwritten. Outputs are always written to fresh destination files.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing-section" id="pricing">
+<div class="container">
+  <div class="section-heading">
+    <h2 data-en="Transparent Pricing" data-zh="清晰透明的定价方案">Transparent Pricing</h2>
+    <p data-en="Core converters are permanently free. Advanced Excel tools include a 3×3 trial and cancel-anytime recurring subscription." data-zh="日常基础文件工具永久免费；Excel 高级功能提供 3×3 独立免费体验，专业版按月订阅，随时自主取消。">Core converters are permanently free. Advanced Excel tools include a 3×3 trial and cancel-anytime recurring subscription.</p>
+  </div>
+
+  <div class="pricing-wrapper">
+    <div class="plan-card">
+      <div class="plan-title" data-en="Core Free Edition" data-zh="基础免费版">Core Free Edition</div>
+      <div class="plan-desc" data-en="Everyday media conversion, image formatting, and Word export." data-zh="日常音视频转码、图像转换与 Word 格式化导出。">Everyday media conversion, image formatting, and Word export.</div>
+      <div class="price-row">
+        <span class="price-val">US$ 0</span>
+        <span class="price-unit" data-en="/ forever" data-zh="/ 永久免费">/ forever</span>
+      </div>
+      <ul class="feature-list">
+        <li><span class="icon">✓</span> <span data-en="Batch Image Conversion (WEBP, PNG, JPG)" data-zh="图片批量格式转换（WEBP、PNG、JPG）">Batch Image Conversion (WEBP, PNG, JPG)</span></li>
+        <li><span class="icon">✓</span> <span data-en="Built-in Local Media Conversion (LGPL FFmpeg)" data-zh="内置本地音视频转码（LGPL FFmpeg 引擎）">Built-in Local Media Conversion (LGPL FFmpeg)</span></li>
+        <li><span class="icon">✓</span> <span data-en="AI Notes &amp; Markdown to Word (.docx)" data-zh="AI 文本与剪贴板表格转 Word (.docx)">AI Notes &amp; Markdown to Word (.docx)</span></li>
+        <li><span class="icon">✓</span> <span data-en="100% Local Processing — zero cloud uploads" data-zh="100% 本地运算，绝不上载云端">100% Local Processing — zero cloud uploads</span></li>
+        <li><span class="icon">✓</span> <span data-en="Includes 3×3 free trial exports for Excel Pro" data-zh="内置 Excel Pro 高级功能 3×3 独立免费体验额度">Includes 3×3 free trial exports for Excel Pro</span></li>
+      </ul>
+      <a class="btn outline" href="#download" data-en="Download Free Version" data-zh="免费下载桌面客户端">Download Free Version</a>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-title" data-en="DataBridge Pro" data-zh="Excel Pro 专业版">DataBridge Pro</div>
+      <div class="plan-desc" data-en="Unlock unlimited spreadsheet normalization and multi-sheet joins." data-zh="解锁无限次 Excel 智能表头对齐、异构表格拼接与双表主键匹配。">Unlock unlimited spreadsheet normalization and multi-sheet joins.</div>
+      <div class="price-row">
+        <span class="price-val">US$ 12.99</span>
+        <span class="price-unit" data-en="/ month · recurring" data-zh="/ 月 · 每月自动续费">/ month · recurring</span>
+      </div>
+      <ul class="feature-list">
+        <li><span class="icon">★</span> <span data-en="Unlimited Smart Table Cleanup &amp; Header Alignment" data-zh="无限次 Excel / CSV 智能表头对齐与异常数据高亮">Unlimited Smart Table Cleanup &amp; Header Alignment</span></li>
+        <li><span class="icon">★</span> <span data-en="Supplier Quote Alias Mapping (Human confirmed)" data-zh="供应商报价单别名智能映射（关键数值人工复核）">Supplier Quote Alias Mapping (Human confirmed)</span></li>
+        <li><span class="icon">★</span> <span data-en="Unlimited Multi-Sheet &amp; CSV Batch Merging" data-zh="无限次 多份表格与 CSV 批量自动拼接合并">Unlimited Multi-Sheet &amp; CSV Batch Merging</span></li>
+        <li><span class="icon">★</span> <span data-en="Unlimited Dual-Table Key Matching (instant preview)" data-zh="无限次 双表主键字段秒级关联匹配与未匹配预警">Unlimited Dual-Table Key Matching (instant preview)</span></li>
+        <li><span class="icon">★</span> <span data-en="Cryptographic Ed25519 offline license verification" data-zh="基于 Ed25519 非对称公钥的离线安全验签">Cryptographic Ed25519 offline license verification</span></li>
+        <li><span class="icon">★</span> <span data-en="Cancel anytime with 1 click via Paddle Buyer Portal" data-zh="随时在 Paddle 买家中心一键取消，无隐藏扣费">Cancel anytime with 1 click via Paddle Buyer Portal</span></li>
+      </ul>
+      <a class="btn primary" href="https://durian9188-jpg.github.io/databridge-website/checkout.html" data-en="Upgrade to Pro (Paddle Checkout) →" data-zh="前往 Paddle 收银台订阅 Pro →">Upgrade to Pro (Paddle Checkout) →</a>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:28px;">
+    <a href="pricing.html" style="color:var(--accent);font-size:14px;text-decoration:underline;font-weight:600;" data-en="View detailed pricing FAQ and cancellation guide →" data-zh="查看详细价格问答与退订说明 →">View detailed pricing FAQ and cancellation guide →</a>
+  </div>
+</div>
+</section>
+
+<!-- Privacy Banner -->
+<div class="container">
+  <div class="privacy-banner">
+    <h2 data-en="Core file processing stays 100% on your machine." data-zh="核心业务数据 100% 在您本地电脑处理。">Core file processing stays 100% on your machine.</h2>
+    <p data-en="Whether handling supplier price lists, financial sheets, or sensitive video files, DataBridge performs computations locally on your CPU and storage. Your document contents are never transmitted to external servers, cloud databases, or third-party AI models. Payments are securely processed by Paddle as Merchant of Record." data-zh="无论是处理供应商报价单、财务明细还是企业影音素材，DataBridge 均在您个人电脑本地执行所有运算。文档内容绝不传输至外部服务器或第三方 AI 平台。国际商业订阅由官方商户 Paddle 统一提供安全加密结算。">Whether handling supplier price lists, financial sheets, or sensitive video files, DataBridge performs computations locally on your CPU and storage. Your document contents are never transmitted to external servers, cloud databases, or third-party AI models. Payments are securely processed by Paddle as Merchant of Record.</p>
+    <div style="margin-top:16px;">
+      <a href="privacy.html" style="color:var(--accent);font-size:13px;text-decoration:underline;font-weight:600;" data-en="Read our complete Privacy Policy →" data-zh="阅读完整隐私政策 →">Read our complete Privacy Policy →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Download Section -->
+<section class="download" id="download">
+<div class="container">
+  <h2 data-en="Get DataBridge 1.1.0." data-zh="下载 DataBridge 1.1.0。">Get DataBridge 1.1.0.</h2>
+  <p data-en="Public testing build for macOS (Apple Silicon) and Windows (64-bit)." data-zh="适用于 macOS (Apple 芯片) 与 Windows (64位) 的公开测试版。">Public testing build for macOS (Apple Silicon) and Windows (64-bit).</p>
+  <div class="actions">
+    <a class="btn primary" href="https://github.com/durian9188-jpg/databridge-releases/releases/download/v1.1.0/DataBridge-1.1.0-macOS-arm64.dmg" download="DataBridge-1.1.0-macOS-arm64.dmg" data-en="↓ macOS (Apple Silicon .dmg)" data-zh="↓ macOS (Apple 芯片 .dmg)">↓ macOS (Apple Silicon .dmg)</a>
+    <a class="btn primary" href="https://github.com/durian9188-jpg/databridge-releases/releases/download/v1.1.0/DataBridge-1.1.0-Windows-x64-Setup.exe" download="DataBridge-1.1.0-Windows-x64-Setup.exe" data-en="↓ Windows Setup (.exe)" data-zh="↓ Windows 安装向导 (.exe)">↓ Windows 安装向导 (.exe)</a>
+    <a class="btn outline" href="https://github.com/durian9188-jpg/databridge-releases/releases/download/v1.1.0/DataBridge-1.1.0-Windows-x64-Portable.zip" download="DataBridge-1.1.0-Windows-x64-Portable.zip" data-en="↓ Windows Portable (.zip)" data-zh="↓ Windows 便携版 (.zip)">↓ Windows 便携版 (.zip)</a>
+  </div>
+  <p style="font-size:12px;color:#999;margin-top:22px;" data-en="Tested and supported on macOS Monterey (12)+ and Windows 10/11 64-bit." data-zh="支持并在 macOS Monterey (12)+ 与 Windows 10/11 64位系统完成自动化验证。">Tested and supported on macOS Monterey (12)+ and Windows 10/11 64-bit.</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+  <div>
+    <span>© 2026 DataBridge.</span>
+    <span style="margin-left: 8px;" data-en="Made for everyday file tasks." data-zh="为日常文件处理而设计。">Made for everyday file tasks.</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://durian9188-jpg.github.io/databridge-website/" data-en="Full Website" data-zh="完整官网">Full Website</a>
+    <a href="pricing.html" data-en="Pricing" data-zh="价格方案">Pricing</a>
+    <a href="terms.html" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+    <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+    <a href="refund.html" data-en="Refund Policy" data-zh="退款政策">Refund Policy</a>
+    <a href="mailto:support@databridge.app" data-en="Contact Support" data-zh="联系支持">Contact Support</a>
+  </div>
+</div>
+</footer>
+
+<script>
+let currentLang='en';
+const languagePicker=document.getElementById('languagePicker');
+const languageTrigger=document.getElementById('langBtn');
+const languageMenu=document.getElementById('languageMenu');
+const languageLabel=document.getElementById('langLabel');
+
+function setLanguage(lang){
+  if(lang!=='en' && lang!=='zh') return;
+  currentLang=lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-CN';
+  document.querySelectorAll('[data-en][data-zh]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+lang);
+  });
+  languageLabel.textContent=lang==='en'?'EN':'中文';
+  
+  const heroEn = document.getElementById('hero-en');
+  const heroZh = document.getElementById('hero-zh');
+  if(heroEn && heroZh){
+    heroEn.hidden = (lang === 'zh');
+    heroZh.hidden = (lang !== 'zh');
+  }
+
+  languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+    const selected=button.dataset.language===lang;
+    button.setAttribute('aria-checked',String(selected));
+    button.querySelector('.language-check').textContent=selected?'✓':'';
+  });
+  try{ localStorage.setItem('databridge-language',lang); }catch(e){}
+  closeLanguageMenu();
+}
+
+function closeLanguageMenu(){
+  languageMenu.hidden=true;
+  languageTrigger.setAttribute('aria-expanded','false');
+}
+
+languageTrigger.addEventListener('click',()=>{
+  const willOpen=languageMenu.hidden;
+  languageMenu.hidden=!willOpen;
+  languageTrigger.setAttribute('aria-expanded',String(willOpen));
+});
+
+languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    setLanguage(button.dataset.language);
+    languageTrigger.focus();
+  });
+});
+
+document.addEventListener('click',event=>{
+  if(!languagePicker.contains(event.target)){
+    closeLanguageMenu();
+  }
+});
+
+let savedLanguage='en';
+try{
+  const stored=localStorage.getItem('databridge-language');
+  if(stored==='en'||stored==='zh') savedLanguage=stored;
+}catch(e){}
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>

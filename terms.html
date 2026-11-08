@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DataBridge Terms of Service: Software usage, subscription terms, auto-renewal, and cancellation policy.">
+<title>Terms of Service — DataBridge</title>
+<style>
+:root{
+  --ink:#171717;
+  --muted:#777;
+  --line:#e9e9e7;
+  --paper:#fff;
+  --soft:#f7f7f5;
+  --accent:#8d7359;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(900px,calc(100% - 48px));margin:auto}
+header{height:76px;border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:22px;font-weight:750;letter-spacing:-.8px}
+.brand span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-link{font-size:13px;color:#555;transition:color .15s}
+.nav-link:hover{color:#111}
+.nav-link.active{color:var(--ink);font-weight:600}
+.lang{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;cursor:pointer}
+
+.doc-header{padding:65px 0 35px;border-bottom:1px solid var(--line);margin-bottom:45px}
+.badge{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:30px;font-size:12px;color:#777;background:#fafafa;font-weight:600}
+h1{font-size:clamp(32px,4.5vw,46px);letter-spacing:-1.8px;line-height:1.2;margin:18px 0 12px;font-weight:750}
+.doc-meta{font-size:13px;color:var(--muted)}
+
+.doc-body section{margin-bottom:42px}
+.doc-body h2{font-size:22px;font-weight:700;letter-spacing:-.6px;margin:0 0 16px;color:#111}
+.doc-body p{font-size:15px;color:#444;margin:0 0 16px;line-height:1.8}
+.doc-body ul{padding-left:22px;margin:0 0 16px;color:#444;font-size:15px}
+.doc-body li{margin-bottom:8px;line-height:1.7}
+.callout{background:var(--soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 22px;margin:22px 0}
+.callout p{margin:0;font-size:14px;color:#333}
+
+footer{border-top:1px solid var(--line);padding:35px 0;color:#999;font-size:12px;margin-top:75px}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#777;transition:color .15s}
+.footer-links a:hover{color:#111}
+
+@media(max-width:768px){
+  header{height:66px}
+  .nav-link{display:none}
+}
+
+/* Language picker */
+.language-picker{position:relative}
+.language-trigger{display:flex;align-items:center;justify-content:center;gap:8px;min-width:76px;height:38px;font-size:13px;font-weight:600;color:#333;transition:background .15s ease}
+.language-trigger:hover{background:#f7f7f5}
+.language-chevron{font-size:17px;line-height:1;color:#888}
+.language-menu{position:absolute;top:calc(100% + 9px);right:0;width:166px;padding:6px;background:#fff;border:1px solid #e9e9e7;border-radius:12px;box-shadow:0 12px 35px rgba(0,0,0,.09);z-index:100}
+.language-menu[hidden]{display:none}
+.language-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:0;border-radius:8px;background:transparent;color:#444;font:inherit;font-size:13px;text-align:left;cursor:pointer}
+.language-menu button:hover{background:#f6f6f4}
+.language-menu button[aria-checked="true"]{color:#171717;font-weight:600}
+.language-check{color:#8d7359}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="brand" href="index.html">Data<span>Bridge</span></a>
+<div class="nav-right">
+<a class="nav-link" href="index.html#features" data-en="Features" data-zh="功能">Features</a>
+<a class="nav-link" href="pricing.html" data-en="Pricing" data-zh="价格">Pricing</a>
+<a class="nav-link" href="index.html#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
+<a class="nav-link active" href="terms.html" data-en="Terms" data-zh="条款">Terms</a>
+<a class="nav-link" href="refund.html" data-en="Refunds" data-zh="退款">Refunds</a>
+<a class="nav-link" href="index.html#download" data-en="Download" data-zh="下载">Download</a>
+<div class="language-picker" id="languagePicker">
+  <button class="lang language-trigger" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu">
+    <span id="langLabel">EN</span>
+    <span class="language-chevron" aria-hidden="true">⌄</span>
+  </button>
+  <div class="language-menu" id="languageMenu" role="menu" hidden>
+    <button type="button" role="menuitemradio" aria-checked="true" data-language="en">
+      <span>English</span><span class="language-check">✓</span>
+    </button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-language="zh">
+      <span>简体中文</span><span class="language-check"></span>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container">
+
+<div class="doc-header">
+  <div class="badge" data-en="LEGAL AGREEMENT" data-zh="法律协议">LEGAL AGREEMENT</div>
+  <h1 data-en="Terms of Service" data-zh="服务条款">Terms of Service</h1>
+  <div class="doc-meta" data-en="Last Updated: November 2026 · Effective Immediately" data-zh="更新日期：2026年11月 · 即日起生效">Last Updated: November 2026 · Effective Immediately</div>
+</div>
+
+<div class="doc-body">
+
+  <section>
+    <h2 data-en="1. Acceptance of Terms" data-zh="1. 协议接受与适用范围">1. Acceptance of Terms</h2>
+    <p data-en="Welcome to DataBridge. These Terms of Service ('Terms') constitute a binding legal agreement between you ('User' or 'You') and the DataBridge project team ('DataBridge', 'we', 'us'). By downloading, installing, accessing, or using the DataBridge desktop application or website, you agree to be legally bound by these Terms and our Privacy Policy. If you do not agree to these Terms, do not install or use DataBridge." data-zh="欢迎使用 DataBridge。本《服务条款》（以下简称“本条款”）是您（“用户”或“您”）与 DataBridge 团队（“我们”）之间具有法律约束力的协议。通过下载、安装、访问或使用 DataBridge 桌面客户端或官方网站，即表示您同意接受本条款及《隐私政策》的约束。如您不同意本条款，请勿安装或使用本软件。">Welcome to DataBridge. These Terms of Service ('Terms') constitute a binding legal agreement between you ('User' or 'You') and the DataBridge project team ('DataBridge', 'we', 'us'). By downloading, installing, accessing, or using the DataBridge desktop application or website, you agree to be legally bound by these Terms and our Privacy Policy. If you do not agree to these Terms, do not install or use DataBridge.</p>
+  </section>
+
+  <section>
+    <h2 data-en="2. Nature of Software &amp; Local Processing" data-zh="2. 软件性质与本地处理原则">2. Nature of Software &amp; Local Processing</h2>
+    <p data-en="DataBridge is a desktop workspace application designed for macOS and Windows that provides spreadsheet normalization, multi-sheet and CSV merging, dual-table key matching, document generation, and offline media conversion." data-zh="DataBridge 是一款面向 macOS 与 Windows 的桌面端文件工作台，提供表格智能整理、多表格及 CSV 批量合并、双表主键匹配、文档转换及本地多媒体格式转换功能。">DataBridge is a desktop workspace application designed for macOS and Windows that provides spreadsheet normalization, multi-sheet and CSV merging, dual-table key matching, document generation, and offline media conversion.</p>
+    <div class="callout">
+      <p data-en="<strong>Local-Only Execution:</strong> All core document, spreadsheet, and media processing operations run strictly on your local computer hardware. We do not transmit, copy, host, or store your private document contents on remote cloud servers. You retain 100% ownership and intellectual property rights in your files." data-zh="<strong>纯本地运行机制：</strong>软件的核心表格合并、智能清洗、双表关联与格式转换均严格在您的电脑本地硬件中执行。您的源文件与文档内容绝不上传至任何远端服务器。您对处理的文件拥有 100% 的所有权与知识产权。"><strong>Local-Only Execution:</strong> All core document, spreadsheet, and media processing operations run strictly on your local computer hardware. We do not transmit, copy, host, or store your private document contents on remote cloud servers. You retain 100% ownership and intellectual property rights in your files.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="3. License Grants &amp; Restrictions" data-zh="3. 许可证授予与使用限制">3. License Grants &amp; Restrictions</h2>
+    <p data-en="Subject to your compliance with these Terms, DataBridge grants you a revocable, non-exclusive, non-transferable license to install and run the application on supported personal or commercial desktop devices." data-zh="在您遵守本条款的前提下，DataBridge 授予您一项可撤销的、非独占的、不可转让的许可，允许您在受支持的个人或商用桌面设备上安装并运行本软件。">Subject to your compliance with these Terms, DataBridge grants you a revocable, non-exclusive, non-transferable license to install and run the application on supported personal or commercial desktop devices.</p>
+    <ul>
+      <li data-en="<strong>Core Free Tools:</strong> Basic image conversion, audio/video transcoding, and text-to-Word generation are free of charge for permanent use." data-zh="<strong>基础免费工具：</strong>基础图片转换、音视频转码及文本转 Word 功能永久免费使用。"><strong>Core Free Tools:</strong> Basic image conversion, audio/video transcoding, and text-to-Word generation are free of charge for permanent use.</li>
+      <li data-en="<strong>Pro Trial Quotas:</strong> Each user is provided with a 3×3 trial allowance (3 independent successful exports for Smart Table Cleanup, 3 for Table Join, and 3 for Multi-Sheet Merge) without requiring payment." data-zh="<strong>Pro 体验额度：</strong>每位用户享有 3×3 独立体验额度（智能整理、双表关联与多表合并各 3 次独立免费成功导出），无需预先付款。"><strong>Pro Trial Quotas:</strong> Each user is provided with a 3×3 trial allowance (3 independent successful exports for Smart Table Cleanup, 3 for Table Join, and 3 for Multi-Sheet Merge) without requiring payment.</li>
+      <li data-en="<strong>Restrictions:</strong> You shall not reverse-engineer, decompile, crack, forge, or tamper with the Ed25519 digital license verification mechanisms, or resell, sublicense, or publicly distribute unauthorized Pro activation tokens." data-zh="<strong>使用禁止项：</strong>严禁对客户端进行逆向工程、反编译、破解或篡改 Ed25519 授权签名验证逻辑；严禁转售、分发或伪造未经授权的 Pro 激活凭据。"><strong>Restrictions:</strong> You shall not reverse-engineer, decompile, crack, forge, or tamper with the Ed25519 digital license verification mechanisms, or resell, sublicense, or publicly distribute unauthorized Pro activation tokens.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-en="4. Subscriptions, Pricing &amp; Billing (Paddle as Merchant of Record)" data-zh="4. 订阅、定价与结算（Paddle 作为官方商户）">4. Subscriptions, Pricing &amp; Billing (Paddle as Merchant of Record)</h2>
+    <p data-en="DataBridge Pro is offered as a monthly recurring subscription at the price of US$ 12.99 per month (or local currency equivalent calculated at checkout). Domestic Chinese users may activate Pro through local payment channels at ¥9.99/month." data-zh="DataBridge Pro 专业版采用按月连续订阅模式，海外统一定价为 US$ 12.99/月（结账时按适用汇率与税率结算）；中国大陆地区支持按 ¥9.99/月进行激活。">DataBridge Pro is offered as a monthly recurring subscription at the price of US$ 12.99 per month (or local currency equivalent calculated at checkout). Domestic Chinese users may activate Pro through local payment channels at ¥9.99/month.</p>
+    <p data-en="Our order process is conducted by our online reseller and Merchant of Record, <strong>Paddle.com Inc. / Paddle Payments Limited ('Paddle')</strong>. Paddle handles customer service inquiries, billing, tax calculation, and returns for international transactions. By subscribing through Paddle, you also agree to Paddle's Checkout Buyer Terms and Privacy Policy." data-zh="我们的国际在线结算由官方授权商户与记录经销商（Merchant of Record）<strong>Paddle.com Inc. / Paddle Payments Limited（简称“Paddle”）</strong>负责承办。Paddle 统一负责处理支付交互、发票出具、税费计算与买家支持服务。通过 Paddle 进行结账，即代表您同时同意遵守 Paddle 的买家服务协议与隐私政策。">Our order process is conducted by our online reseller and Merchant of Record, <strong>Paddle.com Inc. / Paddle Payments Limited ('Paddle')</strong>. Paddle handles customer service inquiries, billing, tax calculation, and returns for international transactions. By subscribing through Paddle, you also agree to Paddle's Checkout Buyer Terms and Privacy Policy.</p>
+    <p data-en="<strong>Automatic Renewal:</strong> Your subscription renews automatically each month on the recurring billing date using your stored payment method, unless you cancel prior to the end of the current billing cycle." data-zh="<strong>自动续费机制：</strong>除非您在当前周期结束前取消，否则您的订阅将在每个月度结算日自动续期并完成扣款。"><strong>Automatic Renewal:</strong> Your subscription renews automatically each month on the recurring billing date using your stored payment method, unless you cancel prior to the end of the current billing cycle.</p>
+  </section>
+
+  <section>
+    <h2 data-en="5. Cancellation &amp; Termination" data-zh="5. 取消订阅与服务终止">5. Cancellation &amp; Termination</h2>
+    <p data-en="You may cancel your recurring subscription at any time without penalty or cancellation fees:" data-zh="您可以随时取消连续订阅，无任何罚金或额外解约手续费：">You may cancel your recurring subscription at any time without penalty or cancellation fees:</p>
+    <ul>
+      <li data-en="<strong>Self-Service via Paddle:</strong> Access the Paddle Buyer Portal at <a href='https://checkout.paddle.com' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>checkout.paddle.com</a>, enter the email address used during purchase, and click cancel." data-zh="<strong>Paddle 买家中心自助取消：</strong>访问 <a href='https://checkout.paddle.com' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>checkout.paddle.com</a>，输入付款时填写的邮箱地址即可一键停止自动续费。"><strong>Self-Service via Paddle:</strong> Access the Paddle Buyer Portal at <a href='https://checkout.paddle.com' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>checkout.paddle.com</a>, enter the email address used during purchase, and click cancel.</li>
+      <li data-en="<strong>Email Support:</strong> You may also email <a href='mailto:support@databridge.app' style='color:var(--accent);text-decoration:underline;'>support@databridge.app</a> requesting cancellation, and our team will assist you." data-zh="<strong>邮件人工协助：</strong>亦可发送邮件至 <a href='mailto:support@databridge.app' style='color:var(--accent);text-decoration:underline;'>support@databridge.app</a> 申请协助取消。"><strong>Email Support:</strong> You may also email <a href='mailto:support@databridge.app' style='color:var(--accent);text-decoration:underline;'>support@databridge.app</a> requesting cancellation, and our team will assist you.</li>
+    </ul>
+    <p data-en="Upon cancellation, your Pro features remain fully accessible until the expiration date of your current paid billing period. Following expiration, your application smoothly reverts to the Free Core Edition without deleting local files." data-zh="取消订阅后，您的 Pro 权限仍可持续使用至当前已付费周期的截止时间。到期后，客户端平滑降级为基础免费版，绝不影响或删除您的任何本地数据与文件。">Upon cancellation, your Pro features remain fully accessible until the expiration date of your current paid billing period. Following expiration, your application smoothly reverts to the Free Core Edition without deleting local files.</p>
+  </section>
+
+  <section>
+    <h2 data-en="6. Refund Policy" data-zh="6. 退款条款">6. Refund Policy</h2>
+    <p data-en="Refund requests are handled in accordance with our standalone <a href='refund.html' style='color:var(--accent);text-decoration:underline;'>Refund Policy</a> and applicable consumer protection statutes (including statutory withdrawal rights for European Union customers). If you experience technical incompatibility on a supported operating system, duplicate billing, or eligible statutory cancellation, please submit a request through Paddle or our support email." data-zh="退款相关事宜严格按照独立的<a href='refund.html' style='color:var(--accent);text-decoration:underline;'>《退款政策》</a>及适用消费者保护法律（包括欧盟法定的14天撤回权）执行。如遇技术无法兼容、重复扣款或符合法定撤回条件，可通过 Paddle 买家门户或官方支持渠道提出申请。">Refund requests are handled in accordance with our standalone <a href='refund.html' style='color:var(--accent);text-decoration:underline;'>Refund Policy</a> and applicable consumer protection statutes (including statutory withdrawal rights for European Union customers). If you experience technical incompatibility on a supported operating system, duplicate billing, or eligible statutory cancellation, please submit a request through Paddle or our support email.</p>
+  </section>
+
+  <section>
+    <h2 data-en="7. Safe Output &amp; Disclaimer of Warranties" data-zh="7. 安全输出与免责声明">7. Safe Output &amp; Disclaimer of Warranties</h2>
+    <p data-en="DataBridge employs a non-destructive Safe Output architecture designed to preserve your source files and save transformed workbooks as new files. However, the software is provided on an 'AS IS' and 'AS AVAILABLE' basis without warranties of any kind, whether express or implied. Users are strongly advised to maintain regular backups of important business documents." data-zh="DataBridge 采用非破坏性安全输出机制（Safe Output），旨在保护您的原始文件不被覆盖修改，处理结果始终输出为新文件。但在法律允许的最大范围内，本软件按“现状”提供，不包含任何明示或暗示的保证。建议用户对核心重要业务数据保持定期独立备份。">DataBridge employs a non-destructive Safe Output architecture designed to preserve your source files and save transformed workbooks as new files. However, the software is provided on an 'AS IS' and 'AS AVAILABLE' basis without warranties of any kind, whether express or implied. Users are strongly advised to maintain regular backups of important business documents.</p>
+  </section>
+
+  <section>
+    <h2 data-en="8. Limitation of Liability" data-zh="8. 责任限制">8. Limitation of Liability</h2>
+    <p data-en="To the maximum extent permitted by applicable law, DataBridge and its maintainers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits, data, or business opportunities arising from your use of or inability to use the software. In no event shall our total aggregate liability exceed the total subscription fees paid by you in the twelve (12) months preceding the claim." data-zh="在适用法律允许的最大限度内，DataBridge 及其开发者不对因使用或无法使用本软件而导致的任何间接、偶然、特殊或附带损失（包括利润损失、数据丢失或业务中断）承担赔偿责任。在任何情况下，我们承担的累计责任上限均不超过您在争议发生前十二个月内为本服务实际支付的总费用。">To the maximum extent permitted by applicable law, DataBridge and its maintainers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits, data, or business opportunities arising from your use of or inability to use the software. In no event shall our total aggregate liability exceed the total subscription fees paid by you in the twelve (12) months preceding the claim.</p>
+  </section>
+
+  <section>
+    <h2 data-en="9. Contact &amp; Inquiries" data-zh="9. 联系我们与支持通道">9. Contact &amp; Inquiries</h2>
+    <p data-en="If you have questions, feedback, or legal inquiries regarding these Terms, please contact us at:" data-zh="如对本服务条款有任何疑问、建议或法律咨询，请通过以下方式与我们联系：">If you have questions, feedback, or legal inquiries regarding these Terms, please contact us at:</p>
+    <ul>
+      <li>Email: <a href="mailto:support@databridge.app" style="color:var(--accent);text-decoration:underline;">support@databridge.app</a></li>
+      <li>Official GitHub Community: <a href="https://github.com/durian9188-jpg/databridge-releases/discussions" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">github.com/durian9188-jpg/databridge-releases/discussions</a></li>
+      <li>Paddle Buyer Support: <a href="https://checkout.paddle.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">checkout.paddle.com</a></li>
+    </ul>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+  <div>
+    <span>© 2026 DataBridge.</span>
+    <span style="margin-left: 8px;" data-en="Made for everyday file tasks." data-zh="为日常文件处理而设计。">Made for everyday file tasks.</span>
+  </div>
+  <div class="footer-links">
+    <a href="pricing.html" data-en="Pricing" data-zh="价格方案">Pricing</a>
+    <a href="terms.html" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+    <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+    <a href="refund.html" data-en="Refund Policy" data-zh="退款政策">Refund Policy</a>
+    <a href="mailto:support@databridge.app" data-en="Contact Support" data-zh="联系支持">Contact Support</a>
+  </div>
+</div>
+</footer>
+
+<script>
+let currentLang='en';
+const languagePicker=document.getElementById('languagePicker');
+const languageTrigger=document.getElementById('langBtn');
+const languageMenu=document.getElementById('languageMenu');
+const languageLabel=document.getElementById('langLabel');
+
+function setLanguage(lang){
+  if(lang!=='en' && lang!=='zh') return;
+  currentLang=lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-CN';
+  document.querySelectorAll('[data-en][data-zh]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+lang);
+  });
+  languageLabel.textContent=lang==='en'?'EN':'中文';
+  languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+    const selected=button.dataset.language===lang;
+    button.setAttribute('aria-checked',String(selected));
+    button.querySelector('.language-check').textContent=selected?'✓':'';
+  });
+  try{ localStorage.setItem('databridge-language',lang); }catch(e){}
+  closeLanguageMenu();
+}
+
+function closeLanguageMenu(){
+  languageMenu.hidden=true;
+  languageTrigger.setAttribute('aria-expanded','false');
+}
+
+languageTrigger.addEventListener('click',()=>{
+  const willOpen=languageMenu.hidden;
+  languageMenu.hidden=!willOpen;
+  languageTrigger.setAttribute('aria-expanded',String(willOpen));
+});
+
+languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    setLanguage(button.dataset.language);
+    languageTrigger.focus();
+  });
+});
+
+document.addEventListener('click',event=>{
+  if(!languagePicker.contains(event.target)){
+    closeLanguageMenu();
+  }
+});
+
+let savedLanguage='en';
+try{
+  const stored=localStorage.getItem('databridge-language');
+  if(stored==='en'||stored==='zh') savedLanguage=stored;
+}catch(e){}
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>

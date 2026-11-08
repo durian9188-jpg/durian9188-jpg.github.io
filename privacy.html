@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DataBridge Privacy Policy: Complete offline file privacy, local processing architecture, and Paddle payment data separation.">
+<title>Privacy Policy — DataBridge</title>
+<style>
+:root{
+  --ink:#171717;
+  --muted:#777;
+  --line:#e9e9e7;
+  --paper:#fff;
+  --soft:#f7f7f5;
+  --accent:#8d7359;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.container{width:min(900px,calc(100% - 48px));margin:auto}
+header{height:76px;border-bottom:1px solid var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:22px;font-weight:750;letter-spacing:-.8px}
+.brand span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-link{font-size:13px;color:#555;transition:color .15s}
+.nav-link:hover{color:#111}
+.nav-link.active{color:var(--ink);font-weight:600}
+.lang{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;cursor:pointer}
+
+.doc-header{padding:65px 0 35px;border-bottom:1px solid var(--line);margin-bottom:45px}
+.badge{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:30px;font-size:12px;color:#777;background:#fafafa;font-weight:600}
+h1{font-size:clamp(32px,4.5vw,46px);letter-spacing:-1.8px;line-height:1.2;margin:18px 0 12px;font-weight:750}
+.doc-meta{font-size:13px;color:var(--muted)}
+
+.doc-body section{margin-bottom:42px}
+.doc-body h2{font-size:22px;font-weight:700;letter-spacing:-.6px;margin:0 0 16px;color:#111}
+.doc-body p{font-size:15px;color:#444;margin:0 0 16px;line-height:1.8}
+.doc-body ul{padding-left:22px;margin:0 0 16px;color:#444;font-size:15px}
+.doc-body li{margin-bottom:8px;line-height:1.7}
+.callout{background:var(--soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 22px;margin:22px 0}
+.callout p{margin:0;font-size:14px;color:#333}
+
+.table-box{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:24px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}
+th{background:#fafafa;padding:14px 18px;border-bottom:1px solid var(--line);font-weight:650;color:#222}
+td{padding:14px 18px;border-bottom:1px solid var(--line);color:#444;line-height:1.6}
+tr:last-child td{border-bottom:none}
+
+footer{border-top:1px solid var(--line);padding:35px 0;color:#999;font-size:12px;margin-top:75px}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#777;transition:color .15s}
+.footer-links a:hover{color:#111}
+
+@media(max-width:768px){
+  header{height:66px}
+  .nav-link{display:none}
+}
+
+/* Language picker */
+.language-picker{position:relative}
+.language-trigger{display:flex;align-items:center;justify-content:center;gap:8px;min-width:76px;height:38px;font-size:13px;font-weight:600;color:#333;transition:background .15s ease}
+.language-trigger:hover{background:#f7f7f5}
+.language-chevron{font-size:17px;line-height:1;color:#888}
+.language-menu{position:absolute;top:calc(100% + 9px);right:0;width:166px;padding:6px;background:#fff;border:1px solid #e9e9e7;border-radius:12px;box-shadow:0 12px 35px rgba(0,0,0,.09);z-index:100}
+.language-menu[hidden]{display:none}
+.language-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:0;border-radius:8px;background:transparent;color:#444;font:inherit;font-size:13px;text-align:left;cursor:pointer}
+.language-menu button:hover{background:#f6f6f4}
+.language-menu button[aria-checked="true"]{color:#171717;font-weight:600}
+.language-check{color:#8d7359}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="brand" href="index.html">Data<span>Bridge</span></a>
+<div class="nav-right">
+<a class="nav-link" href="index.html#features" data-en="Features" data-zh="功能">Features</a>
+<a class="nav-link" href="pricing.html" data-en="Pricing" data-zh="价格">Pricing</a>
+<a class="nav-link active" href="privacy.html" data-en="Privacy" data-zh="隐私">Privacy</a>
+<a class="nav-link" href="terms.html" data-en="Terms" data-zh="条款">Terms</a>
+<a class="nav-link" href="refund.html" data-en="Refunds" data-zh="退款">Refunds</a>
+<a class="nav-link" href="index.html#download" data-en="Download" data-zh="下载">Download</a>
+<div class="language-picker" id="languagePicker">
+  <button class="lang language-trigger" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false" aria-controls="languageMenu">
+    <span id="langLabel">EN</span>
+    <span class="language-chevron" aria-hidden="true">⌄</span>
+  </button>
+  <div class="language-menu" id="languageMenu" role="menu" hidden>
+    <button type="button" role="menuitemradio" aria-checked="true" data-language="en">
+      <span>English</span><span class="language-check">✓</span>
+    </button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-language="zh">
+      <span>简体中文</span><span class="language-check"></span>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="container">
+
+<div class="doc-header">
+  <div class="badge" data-en="DATA &amp; PRIVACY PROTECTION" data-zh="数据与隐私保护">DATA &amp; PRIVACY PROTECTION</div>
+  <h1 data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</h1>
+  <div class="doc-meta" data-en="Last Updated: November 2026 · Effective Immediately" data-zh="更新日期：2026年11月 · 即日起生效">Last Updated: November 2026 · Effective Immediately</div>
+</div>
+
+<div class="doc-body">
+
+  <section>
+    <h2 data-en="1. Privacy Philosophy: Local-First Processing" data-zh="1. 核心原则：本地优先与零云端上传">1. Privacy Philosophy: Local-First Processing</h2>
+    <p data-en="DataBridge was built on a foundational principle: your business documents, customer lists, financial spreadsheets, images, and audio/video files are yours alone. We believe the safest way to protect confidential information is never to collect or transmit it in the first place." data-zh="DataBridge 建立在一条根本原则之上：您的业务单据、客户清单、财务表格、图片与音视频文件完全属于您自己。我们坚信保护机密信息最根本、最可靠的方式，就是在源头根本不采集、不上载您的任何文件内容。">DataBridge was built on a foundational principle: your business documents, customer lists, financial spreadsheets, images, and audio/video files are yours alone. We believe the safest way to protect confidential information is never to collect or transmit it in the first place.</p>
+    <div class="callout">
+      <p data-en="<strong>Factual Processing Model:</strong> When you clean, merge, format, or convert files in DataBridge, all computations take place 100% on your local machine using your computer's CPU and memory (zero cloud uploads). Your file contents, column names, cell values, and media streams are never uploaded to external servers, cloud databases, or third-party AI APIs." data-zh="<strong>事实维度的处理架构：</strong>当您在客户端中清洗表格、合并数据或转换媒体格式时，所有运算 100% 在您本机的 CPU 与内存中完成（零云端上传）。您的文件内容、字段名称、单元格数据及媒体流绝不上载至外部服务器、云端数据库或第三方 AI 接口。"><strong>Factual Processing Model:</strong> When you clean, merge, format, or convert files in DataBridge, all computations take place 100% on your local machine using your computer's CPU and memory (zero cloud uploads). Your file contents, column names, cell values, and media streams are never uploaded to external servers, cloud databases, or third-party AI APIs.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="2. Data Classification: Local App vs. Payment Data" data-zh="2. 数据分类：本地软件数据与 Paddle 支付数据">2. Data Classification: Local App vs. Payment Data</h2>
+    <p data-en="To provide complete transparency, we clearly separate local desktop application data from subscription checkout data:" data-zh="为确保清晰透明，我们将桌面客户端本地数据与订阅支付结算数据进行严格区分说明：">To provide complete transparency, we clearly separate local desktop application data from subscription checkout data:</p>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th data-en="Data Category" data-zh="数据分类">Data Category</th>
+            <th data-en="What is Collected" data-zh="涉及内容">What is Collected</th>
+            <th data-en="Where it Resides" data-zh="存储与传输位置">Where it Resides</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong data-en="Document &amp; File Contents" data-zh="业务文档与源文件">Document &amp; File Contents</strong></td>
+            <td data-en="Excel sheets, CSV rows, images, audio/video files, Word drafts." data-zh="Excel 表格、CSV 文本、图像、音视频及导出的 Word 文档。">Excel sheets, CSV rows, images, audio/video files, Word drafts.</td>
+            <td><strong data-en="Strictly on your local computer only. Never transmitted over the internet." data-zh="严格仅保留于用户本地电脑，永不通过网络传输。">Strictly on your local computer only. Never transmitted over the internet.</strong></td>
+          </tr>
+          <tr>
+            <td><strong data-en="Application Usage &amp; Diagnostics" data-zh="软件运行与诊断数据">Application Usage &amp; Diagnostics</strong></td>
+            <td data-en="We do NOT track document contents, keystrokes, or user file telemetry." data-zh="我们不跟踪、不采集任何文档内容、按键记录或用户文件遥测。">We do NOT track document contents, keystrokes, or user file telemetry.</td>
+            <td data-en="Local log files (if enabled for debugging) remain on your disk." data-zh="本地排错日志（若开启）仅保存在您的个人电脑磁盘中。">Local log files (if enabled for debugging) remain on your disk.</td>
+          </tr>
+          <tr>
+            <td><strong data-en="Pro License Verification" data-zh="Pro 授权离线验签">Pro License Verification</strong></td>
+            <td data-en="Cryptographic digital signature token (Ed25519) and masked email." data-zh="Ed25519 数字验签令牌及脱敏邮箱，用于客户端离线授权核验。">Cryptographic digital signature token (Ed25519) and masked email.</td>
+            <td data-en="Stored locally in user config directory to allow offline Pro operation." data-zh="保存在本地用户配置目录，支持无需持续联网的离线认证。">Stored locally in user config directory to allow offline Pro operation.</td>
+          </tr>
+          <tr>
+            <td><strong data-en="Billing &amp; Payment Data" data-zh="订阅与支付结算数据">Billing &amp; Payment Data</strong></td>
+            <td data-en="Payment method details, billing address, IP address, tax ID, buyer email." data-zh="付款方式、账单地址、IP 地址、税号及买家联系邮箱。">Payment method details, billing address, IP address, tax ID, buyer email.</td>
+            <td data-en="Processed directly by Paddle (Merchant of Record). DataBridge never sees or stores card numbers." data-zh="由官方授权商户 Paddle 直接加密处理，DataBridge 绝不触碰亦不存储信用卡号。">Processed directly by Paddle (Merchant of Record). DataBridge never sees or stores card numbers.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-en="3. Payment Processing via Paddle" data-zh="3. Paddle 官方支付与结算隐私说明">3. Payment Processing via Paddle</h2>
+    <p data-en="All commercial payment transactions for DataBridge Pro are processed exclusively by <strong>Paddle.com Inc. / Paddle Payments Limited ('Paddle')</strong> acting as Merchant of Record." data-zh="DataBridge Pro 专业版的商业付款交易全部由 <strong>Paddle.com Inc. / Paddle Payments Limited（简称“Paddle”）</strong>作为授权商户独立处理。">All commercial payment transactions for DataBridge Pro are processed exclusively by <strong>Paddle.com Inc. / Paddle Payments Limited ('Paddle')</strong> acting as Merchant of Record.</p>
+    <ul>
+      <li data-en="<strong>PCI-DSS Compliance:</strong> Paddle is certified PCI-DSS Level 1 compliant. Your payment card information is securely transmitted to Paddle's vault and is never handled by or stored on DataBridge servers." data-zh="<strong>PCI-DSS 最高等级合规：</strong>Paddle 具备 PCI-DSS Level 1 最高安全认证。您的信用卡及支付介质直接传输至 Paddle 的加密保险库，DataBridge 无法亦不会获取此类财务敏感凭据。"><strong>PCI-DSS Compliance:</strong> Paddle is certified PCI-DSS Level 1 compliant. Your payment card information is securely transmitted to Paddle's vault and is never handled by or stored on DataBridge servers.</li>
+      <li data-en="<strong>Information We Receive:</strong> When you complete checkout, Paddle notifies our server via an authenticated webhook containing only the necessary transaction identifiers (e.g. buyer email, transaction ID, subscription status, and expiration date) required to issue your cryptographic license." data-zh="<strong>我们接收的信息：</strong>当付款完成后，Paddle 通过安全 Webhook 回调向我们的许可发卡服务同步必要的交易凭据（仅包括买家邮箱、订单号、订阅生效状态与到期时间戳），用于生成离线 Ed25519 签名许可。"><strong>Information We Receive:</strong> When you complete checkout, Paddle notifies our server via an authenticated webhook containing only the necessary transaction identifiers (e.g. buyer email, transaction ID, subscription status, and expiration date) required to issue your cryptographic license.</li>
+      <li data-en="For complete details on how Paddle processes buyer information, please review the <a href='https://www.paddle.com/legal/privacy' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>Paddle Privacy Policy</a>." data-zh="关于 Paddle 如何处理与保护买家个人信息的完整细则，请查阅 <a href='https://www.paddle.com/legal/privacy' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>Paddle 官方隐私政策</a>。">For complete details on how Paddle processes buyer information, please review the <a href='https://www.paddle.com/legal/privacy' target='_blank' rel='noopener' style='color:var(--accent);text-decoration:underline;'>Paddle Privacy Policy</a>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-en="4. Safe Output &amp; File Protection" data-zh="4. 安全输出与源文件保护设计">4. Safe Output &amp; File Protection</h2>
+    <p data-en="DataBridge incorporates a Safe Output design across all format engines. The software does not edit files in-place or overwrite source workbooks, documents, or media files. Instead, all cleaned or merged results are written into freshly generated output files, ensuring your original records remain intact and recoverable at all times." data-zh="DataBridge 在所有核心引擎中均内置了安全输出（Safe Output）机制。软件绝不在原文件上直接覆盖修改，所有清洗、合并或转码成果均自动导出为独立新文件，确保您的原始数据文件始终完好无损。">DataBridge incorporates a Safe Output design across all format engines. The software does not edit files in-place or overwrite source workbooks, documents, or media files. Instead, all cleaned or merged results are written into freshly generated output files, ensuring your original records remain intact and recoverable at all times.</p>
+  </section>
+
+  <section>
+    <h2 data-en="5. Website Cookies &amp; Tracking" data-zh="5. 官方网站 Cookie 与跟踪策略">5. Website Cookies &amp; Tracking</h2>
+    <p data-en="Our official marketing website (hosted statically on GitHub Pages) uses no advertising cookies, analytics trackers, cross-site trackers, or third-party tracking pixels. The website stores only your chosen interface language preference locally in your browser's local storage (localStorage) for display continuity." data-zh="我们的官方展示网站（托管于 GitHub Pages）不包含任何广告 Cookie、第三方行为分析埋点或跨站跟踪脚本。网站仅在您的浏览器本地缓存（localStorage）中保存语言切换偏好，以便下次访问时保持语言一致。">Our official marketing website (hosted statically on GitHub Pages) uses no advertising cookies, analytics trackers, cross-site trackers, or third-party tracking pixels. The website stores only your chosen interface language preference locally in your browser's local storage (localStorage) for display continuity.</p>
+  </section>
+
+  <section>
+    <h2 data-en="6. Data Subject Rights (GDPR &amp; CCPA)" data-zh="6. 用户权利（GDPR 与 CCPA 合规）">6. Data Subject Rights (GDPR &amp; CCPA)</h2>
+    <p data-en="Depending on your jurisdiction (such as the European Union / European Economic Area or California), you have rights regarding your personal billing data, including the right to access, rectify, or request deletion of your subscription email records. Because file contents never leave your device, you have complete autonomous control over your files at all times. To exercise rights over your billing records, contact support@databridge.app." data-zh="根据您所在的司法管辖区（如欧盟/欧洲经济区或美国加州），您对个人账单记录享有访问、纠正或要求删除的合法权利。鉴于您的业务文件内容从未离开您的个人电脑，您始终对自己的数据拥有自主掌控权。如需查询或删除与订阅邮箱相关的发卡记录，请发信至 support@databridge.app。">Depending on your jurisdiction (such as the European Union / European Economic Area or California), you have rights regarding your personal billing data, including the right to access, rectify, or request deletion of your subscription email records. Because file contents never leave your device, you have complete autonomous control over your files at all times. To exercise rights over your billing records, contact support@databridge.app.</p>
+  </section>
+
+  <section>
+    <h2 data-en="7. Contact Us" data-zh="7. 隐私事务联系方式">7. Contact Us</h2>
+    <p data-en="If you have questions, comments, or data privacy requests, please contact us at:" data-zh="如果您对本隐私政策有任何问题、意见或数据权利请求，请通过以下方式联系：">If you have questions, comments, or data privacy requests, please contact us at:</p>
+    <ul>
+      <li>Privacy Inquiries: <a href="mailto:support@databridge.app" style="color:var(--accent);text-decoration:underline;">support@databridge.app</a></li>
+      <li>Paddle Buyer Portal: <a href="https://checkout.paddle.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">checkout.paddle.com</a></li>
+    </ul>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+  <div>
+    <span>© 2026 DataBridge.</span>
+    <span style="margin-left: 8px;" data-en="Made for everyday file tasks." data-zh="为日常文件处理而设计。">Made for everyday file tasks.</span>
+  </div>
+  <div class="footer-links">
+    <a href="pricing.html" data-en="Pricing" data-zh="价格方案">Pricing</a>
+    <a href="terms.html" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+    <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+    <a href="refund.html" data-en="Refund Policy" data-zh="退款政策">Refund Policy</a>
+    <a href="mailto:support@databridge.app" data-en="Contact Support" data-zh="联系支持">Contact Support</a>
+  </div>
+</div>
+</footer>
+
+<script>
+let currentLang='en';
+const languagePicker=document.getElementById('languagePicker');
+const languageTrigger=document.getElementById('langBtn');
+const languageMenu=document.getElementById('languageMenu');
+const languageLabel=document.getElementById('langLabel');
+
+function setLanguage(lang){
+  if(lang!=='en' && lang!=='zh') return;
+  currentLang=lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-CN';
+  document.querySelectorAll('[data-en][data-zh]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+lang);
+  });
+  languageLabel.textContent=lang==='en'?'EN':'中文';
+  languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+    const selected=button.dataset.language===lang;
+    button.setAttribute('aria-checked',String(selected));
+    button.querySelector('.language-check').textContent=selected?'✓':'';
+  });
+  try{ localStorage.setItem('databridge-language',lang); }catch(e){}
+  closeLanguageMenu();
+}
+
+function closeLanguageMenu(){
+  languageMenu.hidden=true;
+  languageTrigger.setAttribute('aria-expanded','false');
+}
+
+languageTrigger.addEventListener('click',()=>{
+  const willOpen=languageMenu.hidden;
+  languageMenu.hidden=!willOpen;
+  languageTrigger.setAttribute('aria-expanded',String(willOpen));
+});
+
+languageMenu.querySelectorAll('[data-language]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    setLanguage(button.dataset.language);
+    languageTrigger.focus();
+  });
+});
+
+document.addEventListener('click',event=>{
+  if(!languagePicker.contains(event.target)){
+    closeLanguageMenu();
+  }
+});
+
+let savedLanguage='en';
+try{
+  const stored=localStorage.getItem('databridge-language');
+  if(stored==='en'||stored==='zh') savedLanguage=stored;
+}catch(e){}
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>
