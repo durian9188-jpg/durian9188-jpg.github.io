@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upgrade to DataBridge Pro | Official Checkout</title>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<style>
+:root {
+  --bg: #FBFBFD;
+  --card-bg: #FFFFFF;
+  --text: #1D1D1F;
+  --text-secondary: #86868B;
+  --accent: #0071E3;
+  --accent-hover: #0077ED;
+  --border: #E5E5E7;
+  --success: #34C759;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.checkout-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.05);
+}
+.brand {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 20px 0;
+}
+.amount {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+.period {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.features {
+  list-style: none;
+  margin: 24px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--text);
+}
+.features li:last-child { margin-bottom: 0; }
+.features svg {
+  flex-shrink: 0;
+  color: var(--success);
+}
+.btn-pay {
+  display: block;
+  width: 100%;
+  background: var(--text);
+  color: #FFF;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.btn-pay:hover {
+  background: #333;
+}
+.btn-pay:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.notice {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.6;
+}
+.notice a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+#result-box {
+  display: none;
+  margin-top: 24px;
+  padding: 20px;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 12px;
+}
+#result-box h3 {
+  color: #166534;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+#result-box p {
+  font-size: 14px;
+  color: #14532D;
+  line-height: 1.6;
+}
+.lang-toggle {
+  text-align: right;
+  margin-bottom: 16px;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="checkout-card">
+  <div class="lang-toggle">
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">Switch to 简体中文</button>
+  </div>
+
+  <div class="brand">DataBridge Pro</div>
+  <h1 id="title">Unlock Full Power</h1>
+  <p id="desc" style="color: var(--text-secondary); font-size: 15px;">
+    Supercharge your daily file workflows with automated Excel cleanup and unlimited merges.
+  </p>
+
+  <div class="price-tag">
+    <span class="amount" id="price-val">US$ 12.99</span>
+    <span class="period" id="price-sub">/ month · billed recurring</span>
+  </div>
+
+  <ul class="features">
+    <li>
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <span id="feat-1">Unlimited Excel &amp; CSV Smart Header Cleanup</span>
+    </li>
+    <li>
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <span id="feat-2">Batch Multi-Sheet &amp; Dual-Table Key Merges</span>
+    </li>
+    <li>
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <span id="feat-3">100% Local Processing · No Cloud Uploads</span>
+    </li>
+    <li>
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <span id="feat-4">Cancel anytime · 30-day money-back guarantee</span>
+    </li>
+  </ul>
+
+  <button class="btn-pay" id="checkout-btn" onclick="startCheckout()">
+    Proceed to Secure Checkout →
+  </button>
+
+  <div id="result-box">
+    <h3 id="res-title">🎉 Payment Successful!</h3>
+    <p id="res-desc">
+      Your subscription is active. To activate DataBridge Pro:
+      <br>1. Open the DataBridge desktop app.
+      <br>2. Click <strong>Pro Upgrade</strong> → <strong>Restore License</strong>.
+      <br>3. Enter your checkout email to immediately unlock Pro.
+    </p>
+  </div>
+
+  <div class="notice" id="legal-notice">
+    Payments securely processed by Paddle (Merchant of Record).
+    <br>Manage subscription, update payment method, or cancel anytime at <a href="https://checkout.paddle.com" target="_blank" rel="noopener">Paddle Buyer Portal</a>.
+  </div>
+</div>
+
+<script>
+let currentLang = 'en';
+
+const i18n = {
+  en: {
+    toggle: "Switch to 简体中文",
+    title: "Unlock Full Power",
+    desc: "Supercharge your daily file workflows with automated Excel cleanup and unlimited merges.",
+    priceSub: "/ month · billed recurring",
+    feat1: "Unlimited Excel & CSV Smart Header Cleanup",
+    feat2: "Batch Multi-Sheet & Dual-Table Key Merges",
+    feat3: "100% Local Processing · No Cloud Uploads",
+    feat4: "Cancel anytime · 30-day money-back guarantee",
+    btn: "Proceed to Secure Checkout →",
+    resTitle: "🎉 Payment Successful!",
+    resDesc: "Your subscription is active. To activate DataBridge Pro:<br>1. Open DataBridge desktop app.<br>2. Click <strong>Pro Upgrade</strong> → <strong>Restore License</strong>.<br>3. Enter your checkout email to immediately unlock Pro.",
+    notice: 'Payments securely processed by Paddle (Merchant of Record).<br>Manage subscription, update payment method, or cancel anytime at <a href="https://checkout.paddle.com" target="_blank" rel="noopener">Paddle Buyer Portal</a>.'
+  },
+  zh: {
+    toggle: "Switch to English",
+    title: "升级 DataBridge Pro 专业版",
+    desc: "解锁 Excel 智能表头对齐、异构表格批量合并与双表关联匹配，专为日常办公提效打造。",
+    priceSub: "/ 月 · 随时取消订阅",
+    feat1: "无限次 Excel / CSV 智能表头整理与异常数据核对",
+    feat2: "无限次 多表格批量拼接与双表主键关联",
+    feat3: "100% 本地安全处理 · 文件永不上传云端",
+    feat4: "随时在客户后台取消续费 · 享有 30 天无忧退款保障",
+    btn: "前往 Paddle 安全收银台 →",
+    resTitle: "🎉 支付成功！",
+    resDesc: "您的订阅已成功开通。激活 DataBridge Pro：<br>1. 打开 DataBridge 桌面客户端；<br>2. 点击「升级 Pro」面板中的「恢复授权」；<br>3. 输入结账时填写的邮箱地址即可自动完成激活。",
+    notice: '海外交易由 Paddle 官方安全托管（Merchant of Record）。<br>随时前往 <a href="https://checkout.paddle.com" target="_blank" rel="noopener">Paddle 客户中心</a> 管理或取消续费。'
+  }
+};
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  const t = i18n[currentLang];
+  document.getElementById('lang-btn').textContent = t.toggle;
+  document.getElementById('title').textContent = t.title;
+  document.getElementById('desc').textContent = t.desc;
+  document.getElementById('price-sub').textContent = t.priceSub;
+  document.getElementById('feat-1').textContent = t.feat1;
+  document.getElementById('feat-2').textContent = t.feat2;
+  document.getElementById('feat-3').textContent = t.feat3;
+  document.getElementById('feat-4').textContent = t.feat4;
+  document.getElementById('checkout-btn').textContent = t.btn;
+  document.getElementById('res-title').textContent = t.resTitle;
+  document.getElementById('res-desc').innerHTML = t.resDesc;
+  document.getElementById('legal-notice').innerHTML = t.notice;
+}
+
+// Check URL params for sandbox vs live
+const urlParams = new URLSearchParams(window.location.search);
+const isSandbox = urlParams.get('env') === 'sandbox';
+
+// Configuration
+const CONFIG = {
+  sandbox: {
+    token: "test_1e4f3f5b380757c92f5f6eee667",
+    priceId: "pri_01m6jrrm1knftt5pa7mnjt7gwfh"
+  },
+  live: {
+    // Official Paddle Live configuration
+    token: urlParams.get('token') || "live_40d690aa051dba0bb3ca6886894",
+    priceId: urlParams.get('price_id') || "pri_01m6tfajy4kv1z6rxv8qaqjjq"
+  }
+};
+
+const activeEnv = isSandbox ? CONFIG.sandbox : CONFIG.live;
+
+try {
+  if (window.Paddle) {
+    if (isSandbox) {
+      Paddle.Environment.set("sandbox");
+    }
+    Paddle.Initialize({
+      token: activeEnv.token,
+      eventCallback: function(event) {
+        if (event.name === "checkout.completed") {
+          document.getElementById('checkout-btn').style.display = 'none';
+          document.getElementById('result-box').style.display = 'block';
+        }
+      }
+    });
+  }
+} catch (err) {
+  console.warn("Paddle init notice:", err);
+}
+
+function startCheckout() {
+  if (!window.Paddle) {
+    alert("Paddle checkout library could not be loaded. Please check your network connection.");
+    return;
+  }
+  try {
+    Paddle.Checkout.open({
+      items: [{
+        priceId: activeEnv.priceId,
+        quantity: 1
+      }]
+    });
+  } catch (e) {
+    alert("Unable to open checkout: " + e.message);
+  }
+}
+</script>
+
+</body>
+</html>
