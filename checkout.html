@@ -198,7 +198,7 @@ h1 {
       Your subscription is active. To activate DataBridge Pro:
       <br>1. Open the DataBridge desktop app.
       <br>2. Click <strong>Pro Upgrade</strong> → <strong>Restore License</strong>.
-      <br>3. Enter your checkout email to immediately unlock Pro.
+      <br>3. Enter your checkout email and complete OTP verification to immediately unlock Pro.
     </p>
   </div>
 
@@ -223,7 +223,7 @@ const i18n = {
     feat4: "Cancel anytime · 30-day money-back guarantee",
     btn: "Proceed to Secure Checkout →",
     resTitle: "🎉 Payment Successful!",
-    resDesc: "Your subscription is active. To activate DataBridge Pro:<br>1. Open DataBridge desktop app.<br>2. Click <strong>Pro Upgrade</strong> → <strong>Restore License</strong>.<br>3. Enter your checkout email to immediately unlock Pro.",
+    resDesc: "Your subscription is active. To activate DataBridge Pro:<br>1. Open DataBridge desktop app.<br>2. Click <strong>Pro Upgrade</strong> → <strong>Restore License</strong>.<br>3. Enter your checkout email and complete OTP verification to immediately unlock Pro.",
     notice: 'Payments securely processed by Paddle (Merchant of Record).<br>Manage subscription, update payment method, or cancel anytime at <a href="https://checkout.paddle.com" target="_blank" rel="noopener">Paddle Buyer Portal</a>.'
   },
   zh: {
@@ -237,7 +237,7 @@ const i18n = {
     feat4: "随时在客户后台取消续费 · 享有 30 天无忧退款保障",
     btn: "前往 Paddle 安全收银台 →",
     resTitle: "🎉 支付成功！",
-    resDesc: "您的订阅已成功开通。激活 DataBridge Pro：<br>1. 打开 DataBridge 桌面客户端；<br>2. 点击「升级 Pro」面板中的「恢复授权」；<br>3. 输入结账时填写的邮箱地址即可自动完成激活。",
+    resDesc: "您的订阅已成功开通。激活 DataBridge Pro：<br>1. 打开 DataBridge 桌面客户端；<br>2. 点击「升级 Pro」面板中的「恢复授权」；<br>3. 输入结账邮箱并完成邮件一次性验证码 (OTP) 核验，即可安全激活。",
     notice: '海外交易由 Paddle 官方安全托管（Merchant of Record）。<br>随时前往 <a href="https://checkout.paddle.com" target="_blank" rel="noopener">Paddle 客户中心</a> 管理或取消续费。'
   }
 };
@@ -267,7 +267,7 @@ const isSandbox = urlParams.get('env') === 'sandbox';
 const CONFIG = {
   sandbox: {
     token: "test_1e4f3f5b380757c92f5f6eee667",
-    priceId: "pri_01m6jrrm1knftt5pa7mnjt7gwfh"
+    priceId: "pri_01m6jrrm1knftt5pa7mnjt7gwf"
   },
   live: {
     // Official Paddle Live configuration
