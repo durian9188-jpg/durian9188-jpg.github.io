@@ -159,6 +159,7 @@ h1 {
   </div>
 
   <div class="brand">DataBridge Pro</div>
+  <div id="sandbox-pill" style="display:none;margin:0 auto 12px;padding:4px 12px;border-radius:999px;background:#fef3c7;color:#92400e;border:1px solid #f59e0b;font-size:12px;font-weight:700;width:fit-content;">SANDBOX TEST MODE</div>
   <h1 id="title">Unlock Full Power</h1>
   <p id="desc" style="color: var(--text-secondary); font-size: 15px;">
     Supercharge your daily file workflows with automated Excel cleanup and unlimited merges.
@@ -279,6 +280,10 @@ const CONFIG = {
 const activeEnv = isSandbox ? CONFIG.sandbox : CONFIG.live;
 
 try {
+  if (isSandbox) {
+    var sbPill = document.getElementById('sandbox-pill');
+    if (sbPill) sbPill.style.display = 'inline-block';
+  }
   if (window.Paddle) {
     if (isSandbox) {
       Paddle.Environment.set("sandbox");
@@ -292,6 +297,22 @@ try {
         }
       }
     });
+    if (typeof Paddle.PricePreview === "function") {
+      Paddle.PricePreview({
+        items: [{ priceId: activeEnv.priceId, quantity: 1 }]
+      }).then(function(result) {
+        var lineItem = result && result.data && result.data.details && result.data.details.lineItems && result.data.details.lineItems[0];
+        var formatted = lineItem && lineItem.formattedTotals && lineItem.formattedTotals.subtotal;
+        var currency = result && result.data && result.data.currencyCode;
+        if (formatted) {
+          document.getElementById('price-val').textContent = (currency === 'USD' && formatted.indexOf('US$') === -1)
+            ? ('US' + formatted)
+            : formatted;
+        }
+      }).catch(function(previewErr) {
+        console.warn("Paddle PricePreview notice:", previewErr);
+      });
+    }
   }
 } catch (err) {
   console.warn("Paddle init notice:", err);
